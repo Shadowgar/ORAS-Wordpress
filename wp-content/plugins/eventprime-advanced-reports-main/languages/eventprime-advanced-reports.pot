@@ -1,0 +1,391 @@
+# Advanced Reports Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"Advanced Reports Pot "
+"v3.0.0\n"
+"Report-Msgid-Bugs-To: "
+"Metagauss "
+"<support@metagauss.com>\n"
+"POT-Creation-Date: "
+"2023-07-12 12:12+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: "
+"Metagauss "
+"<support@metagauss.com>\n"
+"Language-Team: Metagauss "
+"<support@metagauss.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit "
+"3.3.2\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+
+#: advanced-reports.php:46
+msgid ""
+"Cloning is forbidden."
+msgstr ""
+
+#: advanced-reports.php:55
+msgid ""
+"Unserializing instances "
+"of this class is "
+"forbidden."
+msgstr ""
+
+#: advanced-reports.php:106
+msgid ""
+"EventPrime Advanced "
+"Reports won't work as "
+"EventPrime plugin is not "
+"active/installed"
+msgstr ""
+
+#: includes/admin/class-ep-reports-admin.php:100
+msgid "Payments"
+msgstr ""
+
+#: includes/admin/class-ep-reports-admin.php:101
+#: includes/services/class-ep-reports-exports.php:25
+#: includes/services/class-ep-reports-exports.php:226
+msgid "Attendees"
+msgstr ""
+
+#: includes/admin/tabs/attendees.php:12
+#: includes/admin/tabs/events.php:17
+#: includes/admin/tabs/parts/attendees/booking-list.php:16
+#: includes/admin/tabs/parts/payments/booking-list.php:14
+#: includes/admin/tabs/payments.php:18
+msgid "Event"
+msgstr ""
+
+#: includes/admin/tabs/attendees.php:14
+#: includes/admin/tabs/events.php:19
+#: includes/admin/tabs/payments.php:20
+msgid "All Event"
+msgstr ""
+
+#: includes/admin/tabs/events.php:11
+#: includes/admin/tabs/payments.php:12
+msgid "Date"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:9
+#: includes/admin/tabs/parts/payments/booking-list.php:8
+msgid "Export All"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:15
+#: includes/admin/tabs/parts/payments/booking-list.php:13
+#: includes/services/class-ep-reports-exports.php:13
+#: includes/services/class-ep-reports-exports.php:217
+msgid "Booking ID"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:17
+#: includes/admin/tabs/parts/payments/booking-list.php:15
+msgid "Event Date"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:18
+#: includes/admin/tabs/parts/payments/booking-list.php:16
+msgid "Status"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:19
+#: includes/admin/tabs/parts/payments/booking-list.php:17
+#: includes/services/class-ep-reports-exports.php:34
+#: includes/services/class-ep-reports-exports.php:227
+msgid "Payment Gateway"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:48
+#: includes/admin/tabs/parts/attendees/load-more-booking-list.php:28
+#: includes/admin/tabs/parts/payments/booking-list.php:44
+#: includes/admin/tabs/parts/payments/load-more-booking-list.php:28
+#: includes/admin/tabs/payments.php:47
+msgid "Completed"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:53
+#: includes/admin/tabs/parts/attendees/load-more-booking-list.php:33
+#: includes/admin/tabs/parts/payments/booking-list.php:49
+#: includes/admin/tabs/parts/payments/load-more-booking-list.php:33
+#: includes/admin/tabs/payments.php:48
+msgid "Pending"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:58
+#: includes/admin/tabs/parts/attendees/load-more-booking-list.php:38
+#: includes/admin/tabs/parts/payments/booking-list.php:54
+#: includes/admin/tabs/parts/payments/load-more-booking-list.php:38
+#: includes/admin/tabs/payments.php:49
+msgid "Cancelled"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:63
+#: includes/admin/tabs/parts/attendees/load-more-booking-list.php:43
+#: includes/admin/tabs/parts/payments/booking-list.php:59
+#: includes/admin/tabs/parts/payments/load-more-booking-list.php:43
+#: includes/admin/tabs/payments.php:50
+msgid "Refunded"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:68
+#: includes/admin/tabs/parts/attendees/load-more-booking-list.php:48
+#: includes/admin/tabs/parts/payments/booking-list.php:64
+#: includes/admin/tabs/parts/payments/load-more-booking-list.php:48
+msgid "Draft"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/booking-list.php:104
+#: includes/admin/tabs/parts/payments/booking-list.php:99
+msgid "Load more"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/stat.php:4
+msgid "Total Revenue"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/stat.php:8
+msgid "Total Booking"
+msgstr ""
+
+#: includes/admin/tabs/parts/attendees/stat.php:12
+msgid "Total Attendees"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/booking-list.php:7
+#, php-format
+msgid "%d booking found"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/booking-list.php:104
+msgid "No Booking Found."
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/stat.php:4
+msgid ""
+"gross sales in this "
+"period"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/stat.php:15
+msgid ""
+"average gross daily sales"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/stat.php:19
+msgid "Booking placed"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/stat.php:23
+msgid "Tickets purchased"
+msgstr ""
+
+#: includes/admin/tabs/parts/payments/stat.php:27
+msgid "Coupon Used"
+msgstr ""
+
+#: includes/admin/tabs/payments.php:31
+msgid "Payment Method"
+msgstr ""
+
+#: includes/admin/tabs/payments.php:33
+msgid "All Payment Method"
+msgstr ""
+
+#: includes/admin/tabs/payments.php:53
+#: includes/services/class-ep-reports-exports.php:35
+#: includes/services/class-ep-reports-exports.php:228
+msgid "Booking Status"
+msgstr ""
+
+#: includes/admin/tabs/payments.php:55
+msgid "All status"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:14
+#: includes/services/class-ep-reports-exports.php:218
+msgid "User Name"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:15
+#: includes/services/class-ep-reports-exports.php:219
+msgid "Email"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:16
+#: includes/services/class-ep-reports-exports.php:220
+msgid "Event Name"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:17
+#: includes/services/class-ep-reports-exports.php:221
+msgid "Start Date"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:18
+#: includes/services/class-ep-reports-exports.php:222
+msgid "Start Time"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:19
+#: includes/services/class-ep-reports-exports.php:223
+msgid "End Date"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:20
+#: includes/services/class-ep-reports-exports.php:224
+msgid "End Time"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:21
+msgid "Event Type"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:22
+msgid "Venue"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:23
+msgid "Address"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:24
+#: includes/services/class-ep-reports-exports.php:225
+msgid "Seating Type"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:26
+msgid "Seat No."
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:27
+msgid "Currency"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:28
+msgid "Price"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:29
+msgid "Ticket Count"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:30
+msgid "Subtotal"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:31
+msgid "Fixed Event Price"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:32
+msgid "Discount"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:33
+msgid "Amount Received"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:36
+#: includes/services/class-ep-reports-exports.php:229
+msgid "Payment Status"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:37
+msgid "Transacton Log"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:38
+msgid "Guest Booking Data"
+msgstr ""
+
+#: includes/services/class-ep-reports-exports.php:53
+#: includes/services/class-ep-reports-exports.php:54
+#: includes/services/class-ep-reports-exports.php:243
+#: includes/services/class-ep-reports-exports.php:244
+msgid "Guest"
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:54
+msgid "View details"
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:77
+#, php-format
+msgid ""
+"More information about %s"
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:128
+msgid "Check for updates"
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:214
+#, php-format
+msgctxt "the plugin title"
+msgid ""
+"The %s plugin is up to "
+"date."
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:216
+#, php-format
+msgctxt "the plugin title"
+msgid ""
+"A new version of the %s "
+"plugin is available."
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:218
+#, php-format
+msgctxt "the plugin title"
+msgid ""
+"Could not determine if "
+"updates are available "
+"for %s."
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Plugin/Ui.php:224
+#, php-format
+msgid ""
+"Unknown update checker "
+"status \"%s\""
+msgstr ""
+
+#: plugin-updates/Puc/v4p13/Vcs/PluginUpdateChecker.php:100
+msgid ""
+"There is no changelog "
+"available."
+msgstr ""

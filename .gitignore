@@ -1,0 +1,20 @@
+# WordPress core
+wp-admin/
+wp-includes/
+
+# Uploads, cache, and temporary files
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/wflogs/
+wp-content/jetpack-waf/
+wp-content/upgrade-temp-backup/
+wp-content/updraft/
+wp-content/wpo-cache/
+
+# Logs and system files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db

@@ -1,0 +1,124 @@
+# Copyright (C) 2025 Paid Memberships Pro
+# This file is distributed under the same license as the Paid Memberships Pro - Mailing Add On plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Paid Memberships Pro - Mailing Add On 2.0\n"
+"Report-Msgid-Bugs-To: info@paidmembershipspro.com\n"
+"Last-Translator: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"Language-Team: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-09T17:19:46+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: pmpro-shipping\n"
+
+#. Plugin Name of the plugin
+#: pmpro-shipping.php
+msgid "Paid Memberships Pro - Mailing Add On"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: pmpro-shipping.php
+msgid "https://www.paidmembershipspro.com/add-ons/shipping-address-membership-checkout/"
+msgstr ""
+
+#. Description of the plugin
+#: pmpro-shipping.php
+msgid "Add mailing address to the checkout page and other locations."
+msgstr ""
+
+#. Author of the plugin
+#: pmpro-shipping.php
+msgid "Paid Memberships Pro"
+msgstr ""
+
+#. Author URI of the plugin
+#: pmpro-shipping.php
+msgid "https://www.paidmembershipspro.com"
+msgstr ""
+
+#: pmpro-shipping.php:50
+#: pmpro-shipping.php:189
+#: pmpro-shipping.php:191
+#: pmpro-shipping.php:206
+#: pmpro-shipping.php:255
+msgid "Mailing Address"
+msgstr ""
+
+#: pmpro-shipping.php:59
+msgid "Copy the billing address used above."
+msgstr ""
+
+#: pmpro-shipping.php:69
+msgid "First Name"
+msgstr ""
+
+#: pmpro-shipping.php:70
+msgid "Last Name"
+msgstr ""
+
+#: pmpro-shipping.php:71
+msgid "Address 1"
+msgstr ""
+
+#: pmpro-shipping.php:72
+msgid "Address 2"
+msgstr ""
+
+#: pmpro-shipping.php:73
+msgid "City"
+msgstr ""
+
+#: pmpro-shipping.php:74
+msgid "State"
+msgstr ""
+
+#: pmpro-shipping.php:75
+msgid "Postal Code"
+msgstr ""
+
+#: pmpro-shipping.php:76
+msgid "Phone"
+msgstr ""
+
+#: pmpro-shipping.php:102
+msgid "Country"
+msgstr ""
+
+#: pmpro-shipping.php:134
+msgid "Mailing Information:"
+msgstr ""
+
+#: pmpro-shipping.php:189
+msgid "Billing Information"
+msgstr ""
+
+#: pmpro-shipping.php:191
+msgid "Log in to your membership"
+msgstr ""
+
+#: pmpro-shipping.php:260
+msgid "Hide Mailing Address:"
+msgstr ""
+
+#: pmpro-shipping.php:263
+msgid "Check this if you DO NOT want to ask for a mailing address with this level."
+msgstr ""
+
+#: pmpro-shipping.php:303
+msgid "View Documentation"
+msgstr ""
+
+#: pmpro-shipping.php:303
+msgid "Docs"
+msgstr ""
+
+#: pmpro-shipping.php:304
+msgid "Visit Customer Support Forum"
+msgstr ""
+
+#: pmpro-shipping.php:304
+msgid "Support"
+msgstr ""

@@ -1,0 +1,158 @@
+.ep-event-title {
+    font-size: 36pt;
+    font-weight: bold;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.ep-ticket-left-section{
+    padding: 20px;
+    border-right: 10px solid #c8a366;
+    display: table-cell;
+}
+.ep-ticket-preview {
+    display: table;
+    width: 100%;
+    background: rgb(226, 198, 153);
+}
+.ep-event-logo {
+    width: 20%;
+    max-width: 162px;
+}
+
+.ep-event-logo img {
+    width: 70%;
+}
+
+.ep-event-detail {
+    width: 60%;
+    text-align: center;
+    display: table-cell;
+    float: none;
+}
+
+.ep-attendee-note {
+    font-size: 18pt !important;
+    color: rgb(134, 92, 22);
+}
+
+.ep-price {
+    font-size: 28pt;
+    line-height: 100%;
+    font-weight: bold;
+    color: rgb(134, 92, 22);
+}
+.ep-ticket-type {
+    font-size: 18pt;
+    line-height: 100%;
+    color: rgb(134, 92, 22);
+}
+.ep-seat-tag{
+    font-size: 24pt !important;
+    color: rgb(134, 92, 22);
+}
+.ep-seat-no {
+    font-size: 40px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.ep-seat-id {
+    font-size: 18pt !important;
+}
+.ep-price-tag {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 16pt;
+    text-transform: uppercase;
+    line-height: 100%;
+}
+.ep-ticket-font {
+    font-size: 16pt;
+    text-transform: uppercase;
+    line-height: 100%;
+}
+.ep-event-prices {
+    margin-top: 50px;
+}
+
+.ep-ticket-setting-fields .titledesc label{
+    position: relative
+}
+
+#ep_ticket_register_meta_boxes .inside {
+    padding: 0;
+    margin: 0;
+}
+
+.ep-spacer {
+    height: 20px;
+    display: inline-block;
+}
+
+.ep-ticket-logo-upload img {
+    width: 100%;
+    max-width: 74px;
+}
+
+
+/*--Meta Box Setting css--*/
+ul.ep_event_metabox_tabs {
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+}
+
+ul.ep_event_metabox_tabs li {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.ep_event_metabox_tabs li a {
+    margin: 0;
+    padding: 10px;
+    display: block;
+    box-shadow: none;
+    text-decoration: none;
+    line-height: 20px!important;
+    border-bottom: 1px solid #eee;
+}
+
+ul.ep_event_metabox_tabs li.ep-tab-active a {
+    color: #555;
+    background-color: #eee;
+}
+
+.ep-ticket-setting-fields label{
+    position: relative
+}
+
+
+ .ep-ticket-setting-fields .ep-help-tip {
+    margin: -4px -4px 0 0;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+}
+ .ep-ticket-setting-fields .ep-help-tip {
+    color: #666;
+    display: inline-block;
+    font-size: 1.2em;
+    font-style: normal;
+    height: 16px;
+    line-height: 16px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.ep-ticket-setting-fields .ep-help-text {
+    font-size: 80%;
+}
+.ep-ticket-right-section{
+    text-align: center;
+}
+.ep-seat-wrap{
+    margin: 80px 0px 20px 0px !important;
+}
+.ep-seat-wrap p{
+    margin: 0px !important;
+}

@@ -1,0 +1,1 @@
+/var/www/html/oras/wp-content/plugins/query-monitor/wp-content/db.php

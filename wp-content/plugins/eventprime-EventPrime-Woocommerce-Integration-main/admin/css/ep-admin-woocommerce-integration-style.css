@@ -1,0 +1,4 @@
+#ep_woocommerce_products .postbox-header{ display:none; }
+ul.ep_event_metabox_tabs li.woocommerce_options a::before{
+    content: "\f312";
+}

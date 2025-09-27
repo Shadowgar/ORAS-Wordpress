@@ -1,0 +1,41 @@
+i.ep-all-events-widget-logo{
+
+}
+
+.ep-eventprime-elementor-icon:before{
+    content: "" !important;
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.ep-icon-eventprime-all-event:before{
+    background: url(../images/ep-all-events.svg)no-repeat center center;
+}
+.ep-icon-eventprime-venues:before{
+    background: url(../images/eventprime-venues.svg)no-repeat center center;    /* ***** */ 
+}
+
+.ep-icon-eventprime-performers:before{
+    background: url(../images/ep-performers.svg)no-repeat center center;
+}
+
+.ep-icon-eventprime-single-event-type {
+    background: url(../images/ep-event-type-single.svg)no-repeat center center;
+}
+
+.ep-icon-eventprime-event-type {
+    background: url(../images/ep-event-type.svg)no-repeat center center;
+}
+
+.ep-icon-eventprime-sponsors {
+    background: url(../images/ep-event-sponsors.svg)no-repeat center center;
+}
+
+.ep-icon-eventprime-sponsors {
+    background: url(../images/ep-event-sponsors.svg)no-repeat center center;
+}
+
+.ep-icon-eventprime-user-register {
+    background: url(../images/ep-user-registration.svg)no-repeat center center;
+}

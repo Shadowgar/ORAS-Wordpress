@@ -1,0 +1,394 @@
+# EventPrime Woocommerce Integration Pot
+# Copyright 2014 ...
+# This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"EventPrime Woocommerce "
+"Integration Pot v3.0.0\n"
+"Report-Msgid-Bugs-To: "
+"Metagauss "
+"<support@metagauss.com>\n"
+"POT-Creation-Date: "
+"2023-10-19 15:39+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: "
+"Metagauss "
+"<support@metagauss.com>\n"
+"Language-Team: Metagauss "
+"<support@metagauss.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.4\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+
+#: eventprime-wci-plugin-updater.php:252
+#, php-format
+msgid ""
+"There is a new version "
+"of %1$s available."
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:258
+msgid ""
+"Contact your network "
+"administrator to install "
+"the update."
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:263
+#, php-format
+msgid ""
+"%1$sView version %2$s "
+"details%3$s."
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:271
+#, php-format
+msgid ""
+"%1$sView version %2$s "
+"details%3$s or "
+"%4$supdate now%5$s."
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:282
+msgid "Update now."
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:514
+msgid ""
+"You do not have "
+"permission to install "
+"plugin updates"
+msgstr ""
+
+#: eventprime-wci-plugin-updater.php:514
+msgid "Error"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ep-wi-admin-meta-boxes.php:56
+msgid "Woocommerce"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ep-wi-admin-meta-boxes.php:94
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:40
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:76
+msgid "Select Category"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ep-wi-admin-meta-boxes.php:96
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:51
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:88
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:90
+msgid "Select Product"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ep-wi-admin-meta-boxes.php:98
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:59
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:101
+msgid ""
+"Is Purchase Mandatory"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ep-wi-admin-meta-boxes.php:99
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:69
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:111
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:20
+#: includes/controller/class-ep-wi-integration.php:678
+#: woocommerce-integration.php:271
+#: woocommerce-integration.php:317
+#: woocommerce-integration.php:398
+msgid "Products"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:34
+#: includes/controller/class-ep-wi-integration.php:686
+#: woocommerce-integration.php:329
+#: woocommerce-integration.php:408
+msgid "Image"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:35
+#: includes/controller/class-ep-wi-integration.php:687
+#: woocommerce-integration.php:330
+#: woocommerce-integration.php:409
+msgid "Name"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:36
+#: includes/controller/class-ep-wi-integration.php:688
+#: woocommerce-integration.php:331
+#: woocommerce-integration.php:410
+msgid "Quantity"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:37
+#: includes/controller/class-ep-wi-integration.php:689
+#: woocommerce-integration.php:333
+#: woocommerce-integration.php:412
+msgid "Price"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-booking-products.php:38
+#: includes/controller/class-ep-wi-integration.php:409
+#: includes/controller/class-ep-wi-integration.php:690
+msgid "Total"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:19
+msgid "Enable product"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:29
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:117
+msgid "Add Product"
+msgstr ""
+
+#: includes/admin/meta-boxes/views/meta-box-wi-panel-html.php:122
+msgid ""
+"Display event and "
+"product combined cost"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:45
+msgid ""
+"Woocommerce Integration"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:51
+msgid ""
+"EventPrime Woocommerce "
+"Integration"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:52
+msgid ""
+"An EventPrime extension "
+"that allows you to add "
+"optional and/ or "
+"mandatory products to "
+"your events. You can "
+"define quantity or let "
+"users chose it "
+"themselves. Fully "
+"integrates with "
+"EventPrime checkout "
+"experience and "
+"WooCommerce order "
+"management."
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:78
+msgid ""
+"Setting saved "
+"successfully"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:104
+msgid ""
+"WooCommerce Integration"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:105
+msgid ""
+"Please Enter License Key"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:111
+msgid ""
+"Your License key is "
+"activated for lifetime"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:113
+#, php-format
+msgid ""
+"Your License Key expires "
+"on %s"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:125
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/admin/settings/class-ep-wi-admin-settings.php:127
+#: includes/admin/settings/class-ep-wi-admin-settings.php:129
+#: includes/admin/settings/class-ep-wi-admin-settings.php:131
+msgid "Activate License"
+msgstr ""
+
+#: includes/admin/settings/views/settings-tab-wc-integration.php:2
+#: includes/admin/settings/views/settings-tab-wc-integration.php:11
+msgid ""
+"Allow Woocommerce "
+"Integration"
+msgstr ""
+
+#: includes/admin/settings/views/settings-tab-wc-integration.php:19
+msgid ""
+"Allow EventPrime "
+"integration with "
+"Woocommerce."
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:93
+#: includes/controller/class-ep-wi-integration.php:141
+msgid "Included Products"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:94
+msgid "Edit"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:111
+#: includes/controller/class-ep-wi-integration.php:369
+msgid "mandatory"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:150
+msgid ""
+"These products are "
+"included with your "
+"tickets. You can modify "
+"quantity of optional "
+"products."
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:209
+msgid "Select"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:266
+#: woocommerce-integration.php:363
+#: woocommerce-integration.php:442
+msgid "Close"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:270
+msgid "Update Cart"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:334
+msgid ""
+"Cart Updated "
+"Successfully."
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:543
+msgid "Billing Address"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:558
+#: includes/controller/class-ep-wi-integration.php:636
+msgid " is required"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:608
+msgid "Shipping Address"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:616
+msgid ""
+"Same as Billing Address"
+msgstr ""
+
+#: includes/controller/class-ep-wi-integration.php:622
+msgid ""
+"Different from Billing "
+"Address"
+msgstr ""
+
+#: woocommerce-integration.php:47
+msgid ""
+"Cloning is forbidden."
+msgstr ""
+
+#: woocommerce-integration.php:56
+msgid ""
+"Unserializing instances "
+"of this class is "
+"forbidden."
+msgstr ""
+
+#: woocommerce-integration.php:173
+msgid ""
+"Woocommerce Currency is "
+"not same with EventPrime "
+"Currency. This should be "
+"same ."
+msgstr ""
+
+#: woocommerce-integration.php:307
+#: woocommerce-integration.php:388
+msgid ""
+"View included product"
+msgstr ""
+
+#: woocommerce-integration.php:332
+#: woocommerce-integration.php:411
+msgid "Is Mandatory"
+msgstr ""
+
+#: woocommerce-integration.php:352
+#: woocommerce-integration.php:431
+msgid "Yes"
+msgstr ""
+
+#: woocommerce-integration.php:510
+msgid ""
+"EventPrime Woocommerce "
+"Integration Extension is "
+"not compatible with "
+"currently installed "
+"version of EventPrime. "
+"This extension needs "
+"EventPrime 3.0 or above."
+msgstr ""
+
+#: woocommerce-integration.php:517
+msgid ""
+"EventPrime Woocommerce "
+"Integration Extension "
+"won't work as EventPrime "
+"plugin is not active/"
+"installed."
+msgstr ""
+
+#: woocommerce-integration.php:524
+msgid ""
+"EventPrime Woocommerce "
+"Integration Extension "
+"won't work as "
+"Woocommerce plugin is "
+"not active/installed."
+msgstr ""

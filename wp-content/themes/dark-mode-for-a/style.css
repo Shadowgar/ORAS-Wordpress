@@ -1,0 +1,41 @@
+/*
+Theme Name: Dark Mode for A.
+Author: Web Guy
+Author URI: https://webguy.io/
+Description: Dark mode for Astra. This child theme is fully compatible with both Astra and Astra Pro.
+Tags: custom-colors
+Version: 1.3
+Requires at least: 5.0
+Tested up to: 6.8
+Requires PHP: 7.0
+License: GNU General Public License v3 or Later
+License URI: https://www.gnu.org/licenses/gpl.html
+Text Domain: dark-mode-for-a
+Template: astra
+
+Dark Mode for A. WordPress Theme © 2021-2025
+Dark Mode for A. is distributed under the terms of the GNU GPL
+*/
+
+/* color:#777 */
+.ast-site-identity .site-title a, .site-title a, .site-title a:focus, .site-title a:hover, .site-title a:visited, .widget-title, .entry-title a, .ast-builder-menu-1 .menu-item > .menu-link, h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, blockquote, .ast-footer-copyright, body .gallery-caption{color:#777}
+
+/* color:#000 */
+#wp-calendar th{color:#000}
+
+/* color:#ccc;background-color:#111 */
+body, #content, .ast-separate-container, input, textarea, select, .widget_search .search-form .search-field, .ast-header-break-point .main-header-menu .sub-menu{color:#ccc;background-color:#111}
+
+/* color:#fff;background-color:#222 */
+#ast-mobile-site-navigation .menu-link, input[type="email"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus{color:#fff;background-color:#222}
+
+/* background-color:#000 */
+.ast-primary-header-bar, .ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .ast-article-inner, #comments, .site-below-footer-wrap[data-section="section-below-footer-builder"], .ast-separate-container .comments-title, .ast-separate-container .ast-comment-list li, .ast-separate-container .comment-respond, .main-header-menu .sub-menu, .ast-header-break-point .main-header-menu, .wp-block-table.is-style-stripes tbody tr:nth-child(2n+1){background-color:#000}
+
+/* background:#fff */
+.comment-navigation .nav-previous::after, .post-navigation .nav-previous::after{background:#fff}
+
+/* border-color:#222 */
+.ast-primary-header-bar, .ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, input, textarea, .widget_search .search-form .search-field, .comments-area, blockquote, .page-links a .page-link, body .gallery-caption, body .gallery-icon, body .gallery-caption, table, td, th, .wp-block-calendar tbody td, .wp-block-calendar th, .ast-header-break-point .ast-primary-header-bar, select, .site-below-footer-wrap[data-section="section-below-footer-builder"]{border-color:#222}
+
+pre{background:none}
