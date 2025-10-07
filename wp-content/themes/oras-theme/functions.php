@@ -211,11 +211,17 @@ function oras_theme_enqueue_mec_overrides() {
         return;
     }
 
+    $deps = array();
+
+    if ( wp_style_is( 'mec-style', 'enqueued' ) || wp_style_is( 'mec-style', 'registered' ) ) {
+        $deps[] = 'mec-style';
+    }
+
     wp_enqueue_style(
         'oras-mec-custom',
         get_stylesheet_directory_uri() . '/oras-mec.css',
-        array(),
+        $deps,
         CHILD_THEME_ORAS_THEME_VERSION
     );
 }
-add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 20 );
+add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 100 );
