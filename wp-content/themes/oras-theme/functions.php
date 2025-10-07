@@ -213,8 +213,16 @@ function oras_theme_enqueue_mec_overrides() {
 
     $deps = array();
 
-    if ( wp_style_is( 'mec-style', 'enqueued' ) || wp_style_is( 'mec-style', 'registered' ) ) {
-        $deps[] = 'mec-style';
+    $mec_handles = array( 'mec-frontend-style' );
+
+    if ( is_rtl() ) {
+        $mec_handles[] = 'mec-frontend-rtl-style';
+    }
+
+    foreach ( $mec_handles as $handle ) {
+        if ( wp_style_is( $handle, 'enqueued' ) || wp_style_is( $handle, 'registered' ) ) {
+            $deps[] = $handle;
+        }
     }
 
     wp_enqueue_style(
