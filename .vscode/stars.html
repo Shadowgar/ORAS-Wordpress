@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Realistic Night Sky</title>
+<style>
+body {
+  margin: 0;
+  background: #01010a; /* dark night sky */
+  overflow-x: hidden;
+  min-height: 100vh;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* Background canvases */
+#nebula-canvas,
+#star-canvas,
+#planet-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+#nebula-canvas { z-index: -3; }
+#star-canvas { z-index: -2; }
+#planet-canvas { z-index: -1; }
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+}
+</style>
+</head>
+<body>
+<canvas id="nebula-canvas"></canvas>
+<canvas id="star-canvas"></canvas>
+<canvas id="planet-canvas"></canvas>
+
+<div class="content">
+  <h1>Oil Region Astronomical Society</h1>
+  <p>Welcome to the stars...</p>
+  <div style="height:2000px;"></div>
+</div>
+
+<script>
+(function(){
+  const nebulaCanvas = document.getElementById('nebula-canvas');
+  const nebCtx = nebulaCanvas.getContext('2d');
+
+  const starCanvas = document.getElementById('star-canvas');
+  const starCtx = starCanvas.getContext('2d');
+
+  const planetCanvas = document.getElementById('planet-canvas');
+  const planetCtx = planetCanvas.getContext('2d');
+
+  let layers = [];
+  const TOTAL_LAYERS = 4;
+  const TOTAL_STARS = 6000;
+  let nebulaBlobs = [];
+  let planets = [];
+
+  // --- Earth rotation parameters ---
+  const latitude = 41.45; // Cranberry, PA
+  const northPoleX = 50; // degrees from left (percent)
+  const northPoleY = 50 - latitude / 90 * 50; // approximate vertical offset
+  const rotationSpeed = 2 * Math.PI / 86400; // radians per second (24hr cycle)
+
+  function resizeCanvas(){
+    const dpr = window.devicePixelRatio || 1;
+    [nebulaCanvas, starCanvas, planetCanvas].forEach(c => {
+      c.width = Math.floor(window.innerWidth * dpr);
+      c.height = Math.floor(window.innerHeight * dpr);
+      c.style.width = window.innerWidth + 'px';
+      c.style.height = window.innerHeight + 'px';
+      const ctx = c.getContext('2d');
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(dpr, dpr);
+    });
+  }
+
+  function hexToRgb(hex){
+    hex = hex.replace('#','');
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `${r},${g},${b}`;
+  }
+
+  // ----------------- Nebula -----------------
+  function createNebula(){
+    nebulaBlobs = [];
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const nebulaColors = [
+      'rgba(255,200,200,0.05)',
+      'rgba(180,150,255,0.05)',
+      'rgba(120,180,255,0.04)',
+      'rgba(255,150,100,0.04)',
+    ];
+
+    for(let i=0;i<10;i++){
+      nebulaBlobs.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        radius: 200 + Math.random()*300,
+        color: nebulaColors[Math.floor(Math.random()*nebulaColors.length)],
+        dx: (Math.random()-0.5)*0.05,
+        dy: (Math.random()-0.5)*0.05
+      });
+    }
+  }
+
+  function drawNebula(){
+    nebCtx.clearRect(0,0,window.innerWidth, window.innerHeight);
+    for(const blob of nebulaBlobs){
+      const gradient = nebCtx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, blob.radius);
+      gradient.addColorStop(0, blob.color);
+      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      nebCtx.fillStyle = gradient;
+      nebCtx.beginPath();
+      nebCtx.arc(blob.x, blob.y, blob.radius, 0, Math.PI*2);
+      nebCtx.fill();
+
+      blob.x += blob.dx;
+      blob.y += blob.dy;
+      if(blob.x < -blob.radius) blob.x = window.innerWidth + blob.radius;
+      if(blob.x > window.innerWidth + blob.radius) blob.x = -blob.radius;
+      if(blob.y < -blob.radius) blob.y = window.innerHeight + blob.radius;
+      if(blob.y > window.innerHeight + blob.radius) blob.y = -blob.radius;
+    }
+  }
+
+  // ----------------- Stars -----------------
+  function createStars(){
+    layers = [];
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    // More varied star colors based on spectral types
+    const starColors = [
+      '#FBFBFF', // Very faint white
+      '#F8F8FF', // Faint white
+      '#F5F5FF', // Off-white
+      '#F0F8FF', // AliceBlue - subtle blue tint
+      '#FFFACD', // LemonChiffon - subtle yellow tint
+      '#FFFAF0', // FloralWhite - subtle warm tint
+      '#E0FFFF', // LightCyan - very subtle blue
+      '#FFE4E1', // MistyRose - very subtle red/pink
+      '#FFFFFF', // Pure white (for brighter stars)
+    ];
+
+    for(let l=0;l<TOTAL_LAYERS;l++){
+      let layerStars = [];
+      const depthFactor = 1 + l;
+      const layerCount = TOTAL_STARS / TOTAL_LAYERS;
+
+      for(let i=0;i<layerCount;i++){
+        let x = Math.random()*w;
+        let y = Math.random()*h;
+
+        // Milky Way effect: increase star density in a central horizontal band
+        const milkyWayBandHeight = h * 0.4; // 40% of screen height
+        const milkyWayCenterY = h * 0.5;
+        const milkyWayDensityFactor = 3; // How much denser the Milky Way is
+
+        if (Math.random() < 0.4) { // 40% chance to be in Milky Way band
+          if (y > milkyWayCenterY - milkyWayBandHeight / 2 && y < milkyWayCenterY + milkyWayBandHeight / 2) {
+            // Already in the band, increase density by re-rolling position
+            for (let j = 0; j < milkyWayDensityFactor; j++) {
+              if (Math.random() < 0.5) { // 50% chance to re-roll within the band
+                x = Math.random()*w;
+                y = milkyWayCenterY - milkyWayBandHeight / 2 + Math.random() * milkyWayBandHeight;
+              }
+            }
+          }
+        }
+
+        // Clustering effect (less frequent, but more pronounced)
+        if(Math.random() < 0.01) {
+          x += (Math.random()-0.5)*100;
+          y += (Math.random()-0.5)*100;
+        }
+
+        const baseColor = starColors[Math.floor(Math.random()*starColors.length)];
+        
+        // More varied radius/magnitude distribution
+        const radius = (Math.random() ** 3) * 1.8 + 0.1; // Cube for more smaller stars, max 1.9
+        const twinkleSpeed = Math.random()*0.6 + 0.1 - l*0.05;
+        const baseOpacity = (Math.random() ** 1.5) * 0.25 + 0.05; // More faint stars, max 0.3
+
+        layerStars.push({
+          x, y, radius, color: baseColor,
+          baseOpacity, twinkleSpeed,
+          phase: Math.random()*Math.PI*2,
+          depth: depthFactor,
+          burstPhase: -Math.random()*5,
+          specialBurst: false,
+          burstDuration:0,
+          nextTwinkle: Math.random()*5+1
+        });
+      }
+      layers.push(layerStars);
+    }
+  }
+
+  function drawStars(scrollOffset, t){
+    starCtx.clearRect(0,0,window.innerWidth, window.innerHeight);
+    const h = window.innerHeight;
+    const w = window.innerWidth;
+    const cx = w * northPoleX / 100;
+    const cy = h * northPoleY / 100;
+
+    for(const layer of layers){
+      for(const s of layer){
+        // Compute rotation around North Celestial Pole
+        const dx = s.x - cx;
+        const dy = s.y - cy;
+        const angle = rotationSpeed * t; // real-time rotation
+        const rotatedX = cx + dx*Math.cos(angle) - dy*Math.sin(angle);
+        const rotatedY = cy + dx*Math.sin(angle) + dy*Math.cos(angle);
+
+        let y = (rotatedY + scrollOffset / (s.depth*10)) % h;
+        if(y<0) y+=h;
+
+        let opacity = s.baseOpacity + Math.sin(t*s.twinkleSpeed + s.phase)*0.06;
+
+        if(!s.specialBurst && t > s.nextTwinkle){
+          s.specialBurst = true;
+          s.burstPhase = t;
+          s.burstDuration = 0.5 + Math.random()*0.5;
+          s.nextTwinkle = t + 3 + Math.random()*5;
+        }
+
+        if(s.specialBurst){
+          const dt = t - s.burstPhase;
+          if(dt < s.burstDuration){
+            opacity += Math.sin((dt/s.burstDuration)*Math.PI)*0.15;
+          } else s.specialBurst = false;
+        }
+
+        const shimmerTime = t - s.burstPhase;
+        const shimmer = Math.sin(shimmerTime*3)*Math.exp(-shimmerTime*1.2);
+        opacity += shimmer*0.05;
+
+        const o = Math.max(0.1, Math.min(opacity, 0.55));
+
+        starCtx.beginPath();
+        starCtx.arc(rotatedX, y, s.radius, 0, Math.PI*2);
+        starCtx.fillStyle = `rgba(${hexToRgb(s.color)},${o})`;
+        starCtx.fill();
+      }
+    }
+  }
+
+  // ----------------- Planets (Tiny, naked-eye realistic) -----------------
+  function createPlanets(){
+    planets = [];
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const planetData = [
+      { name: "Mercury", color: "#d9d9d9", mag: -0.5 },
+      { name: "Venus", color: "#fffacd", mag: -4.0 },
+      { name: "Mars", color: "#ff9966", mag: -2.0 },
+      { name: "Jupiter", color: "#ffebcd", mag: -2.5 },
+      { name: "Saturn", color: "#ffe5b4", mag: -0.3 }
+    ];
+
+    for(const p of planetData){
+      const y = h*0.3 + Math.random()*h*0.4; // roughly along ecliptic
+      planets.push({
+        ...p,
+        x: Math.random()*w,
+        y: y,
+        size: 1 + Math.max(0, 1.5 - Math.abs(p.mag)/4), // very small points
+        phase: Math.random()*Math.PI*2
+      });
+    }
+  }
+
+  function drawPlanets(t){
+    planetCtx.clearRect(0,0,window.innerWidth, window.innerHeight);
+
+    for(const p of planets){
+      const brightness = 0.7 + 0.2*Math.sin(t*0.1 + p.phase); // subtle shimmer
+      planetCtx.beginPath();
+      planetCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      planetCtx.fillStyle = `rgba(${hexToRgb(p.color)},${brightness})`;
+      planetCtx.fill();
+    }
+  }
+
+  // ----------------- Animation -----------------
+  function animate(time){
+    const scrollOffset = window.scrollY || window.pageYOffset || 0;
+    drawNebula();
+    drawStars(scrollOffset, time*0.001);
+    drawPlanets(time*0.001);
+    requestAnimationFrame(animate);
+  }
+
+  function init(){
+    resizeCanvas();
+    createNebula();
+    createStars();
+    createPlanets();
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize',()=>{
+    clearTimeout(window._resizeTimeout);
+    window._resizeTimeout = setTimeout(()=>{
+      resizeCanvas();
+      createNebula();
+      createStars();
+      createPlanets();
+    },150);
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>

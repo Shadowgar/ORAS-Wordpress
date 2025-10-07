@@ -2,13 +2,14 @@
 define('WP_CACHE', true); // WP-Optimize Cache
 define('WP_MEMORY_LIMIT', '512M');
 
-// Debug settings — display errors on site
-define('WP_DEBUG', false);
-define('WP_DEBUG_DISPLAY', false); // show errors on site
-define('WP_DEBUG_LOG', false);    // we won't write to debug.log
+// Debug settings
+define('SAVEQUERIES', true);
+define('WP_DEBUG', true);        // enable WP debug
+define('WP_DEBUG_DISPLAY', false); // do NOT show errors on site
+define('WP_DEBUG_LOG', true);      // write errors to debug.log
 
-// Force PHP to display errors
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+// Recommended PHP error reporting for WP on PHP 8+
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
 ini_set('display_errors', 0);
 
 // Force SSL for admin pages

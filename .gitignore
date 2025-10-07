@@ -18,3 +18,9 @@ wp-content/wpo-cache/
 *.bak
 .DS_Store
 Thumbs.db
+
+# Sensitive and config files
+wp-config.php
+.htaccess
+.env
+*.sql

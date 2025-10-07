@@ -165,7 +165,7 @@ class Module extends App {
 			$wpdb->tables[] = $table;
 		}
 	}
-//Nulled by Mrsam_1 ( Babiato.tech) 
+
 	private function on_elementor_pro_init() {
 		$has_license = API::is_license_active();
 

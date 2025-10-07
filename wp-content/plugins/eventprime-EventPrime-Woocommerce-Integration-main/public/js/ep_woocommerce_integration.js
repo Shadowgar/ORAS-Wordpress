@@ -603,18 +603,23 @@ jQuery( function( $ ) {
         }
 
         // phone
-        let ep_wci_billing_phone = $( '#billing_phone' ).val();
-        if( !ep_wci_billing_phone ) {
-            let requireString = $( '#billing_phone' ).data('field_required');
-            $( '#ep_wci_billing_phone_error' ).html( requireString );
-            ep_wc_error = 1;
-        } else{
-            // check for invalid phone
-            if( !is_valid_phone( ep_wci_billing_phone ) ) {
-                $( '#ep_wci_billing_phone_error' ).html( invalidPhoneString );
+        let isRequired    = $( '#billing_phone' ).data('field_required');
+
+        if(isRequired) {
+            let ep_wci_billing_phone = $( '#billing_phone' ).val();
+            if( !ep_wci_billing_phone ) {
+                let requireString = $( '#billing_phone' ).data('field_required');
+                $( '#ep_wci_billing_phone_error' ).html( requireString );
+                console.log(requireString);
                 ep_wc_error = 1;
-            }
-        } 
+            } else{
+                // check for invalid phone
+                if( !is_valid_phone( ep_wci_billing_phone ) ) {
+                    $( '#ep_wci_billing_phone_error' ).html( invalidPhoneString );
+                    ep_wc_error = 1;
+                }
+            } 
+        }
 
         // post code
         let ep_wci_billing_postcode = $( '#billing_postcode' ).val();
@@ -633,12 +638,12 @@ jQuery( function( $ ) {
         }
 
         // state
-        // let ep_wci_billing_state = $( '#billing_state' ).val();
-        // if( !ep_wci_billing_state ) {
-        //     let requireString = $( '#billing_state' ).data('field_required');
-        //     $( '#ep_wci_billing_state_error' ).html( requireString );
-        //     ep_wc_error = 1;
-        // }
+        let ep_wci_billing_state = $( '#billing_state' ).val();
+        if( !ep_wci_billing_state ) {
+            let requireString = $( '#billing_state' ).data('field_required');
+            $( '#ep_wci_billing_state_error' ).html( requireString );
+            ep_wc_error = 1;
+        }
 
         // city
         let ep_wci_billing_city = $( '#billing_city' ).val();

@@ -430,6 +430,64 @@ class Eventprime_Woocommerce_Integration_Public {
     //     }
     // }
 
+    public function ep_wc_product_on_booking_details_page($args)
+    {
+        if (!empty($args) && !empty($args->em_id) && !empty($args->em_order_info['woocommerce_products'])) {
+            $ep_functions = new Eventprime_Basic_Functions();
+            $products = $args->em_order_info['woocommerce_products'];
+            $total_product_cost = 0;
+
+            foreach ($products as $product) {
+                // Option 1: Use sub_total if available
+                if (isset($product->sub_total)) {
+                    $total_product_cost += floatval($product->sub_total);
+                } else {
+                    // Option 2: Calculate manually
+                    $total_product_cost += floatval($product->price) * intval($product->qty);
+                }
+            }
+
+            if( ! empty( $total_product_cost ) ) {?>
+                <div class="ep-text-small">
+                    <span class="ep-mr-2"><?php esc_html_e( 'Products Price', 'eventprime-event-calendar-management' );?>:</span><span><?php echo $ep_functions->ep_price_with_position(esc_html( $total_product_cost ));?></span>
+                </div><?php
+            }
+        }
+    }
+
+    public function ep_wc_product_on_admin_booking_details_page($bookings)
+    {
+        if (!empty($bookings) && !empty($bookings->em_id) && !empty($bookings->em_order_info['woocommerce_products'])) {
+            $ep_functions = new Eventprime_Basic_Functions();
+            $products = $bookings->em_order_info['woocommerce_products'];
+            $total_product_cost = 0;
+
+            foreach ($products as $product) {
+                // Option 1: Use sub_total if available
+                if (isset($product->sub_total)) {
+                    $total_product_cost += floatval($product->sub_total);
+                } else {
+                    // Option 2: Calculate manually
+                    $total_product_cost += floatval($product->price) * intval($product->qty);
+                }
+            }
+            
+
+            if( ! empty( $total_product_cost ) ) {?>
+                <tr>
+                    <td class="label"><?php esc_html_e( 'Products Subtotal:', 'eventprime-event-calendar-management' );?></td>
+                    <td width="1%"></td>
+                    <td class="ep-ticket-total-amount">
+                        <span>
+                            <?php echo $ep_functions->ep_price_with_position(esc_html( $total_product_cost ));?>
+                        </span>
+                    </td>
+                </tr><?php
+            }
+        }
+
+    }
+
     
 
 

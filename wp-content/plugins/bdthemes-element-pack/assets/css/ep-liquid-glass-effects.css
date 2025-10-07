@@ -1,0 +1,1 @@
+.bdt-liquid-glass-effects-yes>*{position:relative;z-index:1}.bdt-liquid-glass-effects-yes:after{content:'';position:absolute;inset:0;backdrop-filter:blur(var(--ep-liquid-glass-effects-blur, 1px));filter:url(#bdt-frosted)}

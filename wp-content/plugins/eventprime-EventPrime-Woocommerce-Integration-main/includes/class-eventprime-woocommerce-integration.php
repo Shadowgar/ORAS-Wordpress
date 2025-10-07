@@ -260,6 +260,10 @@ class Eventprime_Woocommerce_Integration {
 		// add products to EP WC checkout 
 		$this->loader->add_action( 'ep_wc_checkout_after_tickets_added_to_cart', $plugin_public, 'ep_add_products_to_woocoomerce_checkout_extension_cart', 10, 1);
 
+		$this->loader->add_action('ep_booking_detail_show_fee_data',$plugin_public, 'ep_wc_product_on_booking_details_page', 10, 1);
+
+		$this->loader->add_action('ep_admin_booking_detail_after_tickets_subtotal',$plugin_public, 'ep_wc_product_on_admin_booking_details_page', 10, 1);
+
 
 	}
 

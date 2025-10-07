@@ -1,0 +1,466 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WooCommerce Integration for MEC\n"
+"POT-Creation-Date: 2025-04-14 17:47+0330\n"
+"PO-Revision-Date: 2019-09-03 12:15+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: mec-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: core/admin.php:60
+msgid "Woocommerce"
+msgstr ""
+
+#: core/admin.php:75
+msgid "Woocommerce Integration Options"
+msgstr ""
+
+#: core/admin.php:77
+msgid "Ticket Product Type in WC"
+msgstr ""
+
+#: core/admin.php:81
+msgid "Physical"
+msgstr ""
+
+#: core/admin.php:82
+msgid "Virtual"
+msgstr ""
+
+#: core/admin.php:106 core/admin.php:119
+msgid "Select Ticket Category"
+msgstr ""
+
+#: core/admin.php:116
+msgid "Select Ticket Product Categories"
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:54
+msgid "View details"
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:77
+#, php-format
+msgid "More information about %s"
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:128
+msgid "Check for updates"
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:214
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:216
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:218
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Plugin/Ui.php:224
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr ""
+
+#: core/checkLicense/puc/Puc/v4p11/Vcs/PluginUpdateChecker.php:100
+msgid "There is no changelog available."
+msgstr ""
+
+#: core/checkLicense/update-activation.php:272
+msgid ""
+"Activation failed. Please check your purchase code or license type."
+"<br><b>Note: Your purchase code should match your licesne type.</b>"
+msgstr ""
+
+#: core/checkLicense/update-activation.php:272
+msgid "Troubleshooting"
+msgstr ""
+
+#: core/gateway/init.php:89 core/integrations/parts/add-to-cart.php:229
+msgid "Add to cart"
+msgstr ""
+
+#: core/gateway/init.php:131
+msgid "Add to WooCommerce Cart"
+msgstr ""
+
+#: core/gateway/init.php:136
+msgid "Title"
+msgstr ""
+
+#: core/gateway/init.php:142 core/gateway/init.php:147
+msgid "Comment"
+msgstr ""
+
+#: core/gateway/init.php:144
+msgid "Add to Cart Gateway Description"
+msgstr ""
+
+#: core/gateway/init.php:149
+msgid "HTML allowed."
+msgstr ""
+
+#: core/gateway/init.php:149 core/gateway/init.php:233
+#: core/gateway/init.php:248 core/gateway/init.php:263
+msgid "Read More"
+msgstr ""
+
+#: core/gateway/init.php:158
+msgid "After Add to Cart"
+msgstr ""
+
+#: core/gateway/init.php:161
+msgid "Redirect to Cart"
+msgstr ""
+
+#: core/gateway/init.php:162
+msgid "Redirect to Checkout"
+msgstr ""
+
+#: core/gateway/init.php:163
+msgid "Optional View Cart Button"
+msgstr ""
+
+#: core/gateway/init.php:164
+msgid "Optional Checkout Button"
+msgstr ""
+
+#: core/gateway/init.php:171
+msgid "Sync The Booking Confirmation Status With The Corresponding Woo Order"
+msgstr ""
+
+#: core/gateway/init.php:178
+msgid "Pending"
+msgstr ""
+
+#: core/gateway/init.php:179
+msgid "Confirmed"
+msgstr ""
+
+#: core/gateway/init.php:180
+msgid "Rejected"
+msgstr ""
+
+#: core/gateway/init.php:208
+#, php-format
+msgid "%s Statuses"
+msgstr ""
+
+#: core/gateway/init.php:228
+msgid "Add MEC Ticket Taxes/Fees to Cart"
+msgstr ""
+
+#: core/gateway/init.php:231
+msgid "MEC Taxes/Fees"
+msgstr ""
+
+#: core/gateway/init.php:233
+msgid "Add MEC taxes/fees to the Woo cart"
+msgstr ""
+
+#: core/gateway/init.php:243 core/gateway/init.php:246
+msgid "Remove Woo Taxes for Tickets"
+msgstr ""
+
+#: core/gateway/init.php:248
+msgid "To avoid applying Woo taxes on MEC tickets check this option."
+msgstr ""
+
+#: core/gateway/init.php:258 core/gateway/init.php:261
+msgid "Add Woo Standard Taxes to the Tickets"
+msgstr ""
+
+#: core/gateway/init.php:263
+msgid ""
+"If you select this option, only the Woo Standard tax will apply to the "
+"tickets."
+msgstr ""
+
+#: core/gateway/init.php:271 core/gateway/init.php:276
+msgid "Position"
+msgstr ""
+
+#: core/integrations/parts/add-to-cart.php:161
+msgid "Cart Page"
+msgstr ""
+
+#: core/integrations/parts/add-to-cart.php:164
+msgid "Checkout Page"
+msgstr ""
+
+#: core/integrations/parts/add-to-cart.php:169
+msgid "The Tickets are added to your cart."
+msgstr ""
+
+#: core/integrations/parts/add-to-cart.php:172
+msgid "The Ticket is added to your cart."
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:98
+msgid "MEC Ticket"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:102
+msgid "Shop Order"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:115
+msgid "Type"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:157
+msgid "Files"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:161
+msgid "Event"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:162
+msgid "Download Link"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:176
+msgid "Download File"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:193
+#: core/integrations/parts/email.php:95
+msgid "Attendees List"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:197
+#: core/integrations/parts/email.php:98
+msgid "Attendees"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:198
+#: core/integrations/parts/email.php:99
+msgid "Information"
+msgstr ""
+
+#: core/integrations/parts/admin-orders.php:219
+#: core/integrations/parts/admin-orders.php:236
+#: core/integrations/parts/email.php:122 core/integrations/parts/email.php:169
+msgid "Name: "
+msgstr ""
+
+#: core/integrations/parts/email.php:137
+msgid "Location"
+msgstr ""
+
+#: core/integrations/parts/email.php:151 core/integrations/parts/email.php:180
+#: core/integrations/parts/metabox.php:233
+msgid "Yes"
+msgstr ""
+
+#: core/integrations/parts/email.php:151 core/integrations/parts/email.php:180
+#: core/integrations/parts/metabox.php:233
+msgid "No"
+msgstr ""
+
+#: core/integrations/parts/mec-export.php:77
+msgid "Woocommerce Order ID"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:113
+msgid "Edit Booking"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:116
+msgid "Event Name: "
+msgstr ""
+
+#: core/integrations/parts/metabox.php:124
+msgid "Location: "
+msgstr ""
+
+#: core/integrations/parts/metabox.php:163
+msgid "Attachments"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:192
+msgid "Email"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:196
+msgid "Name"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:201
+msgid "Event Time:"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:208
+msgid "Ticket"
+msgstr ""
+
+#: core/integrations/parts/metabox.php:209
+msgid "Unknown"
+msgstr ""
+
+#: core/integrations/parts/setup.php:92
+msgctxt "mec-woocommerce"
+msgid "MEC Tickets"
+msgstr ""
+
+#: core/integrations/parts/setup.php:97
+#, php-format
+msgid "MEC Tickets <span class=\"count\">(%s)</span>"
+msgid_plural "MEC Tickets <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/integrations/parts/sync.php:241 core/integrations/parts/sync.php:271
+#: core/integrations/parts/sync.php:295
+msgid "The order status has been changed. Please manage order from this"
+msgstr ""
+
+#: core/integrations/parts/sync.php:241 core/integrations/parts/sync.php:271
+#: core/integrations/parts/sync.php:295
+msgid "link"
+msgstr ""
+
+#: mec-woocommerce.php:305
+msgid ""
+"WooCommerce Integration is not working because you need to activate the "
+"Modern Events Calendar plugin."
+msgstr ""
+
+#: mec-woocommerce.php:306 mec-woocommerce.php:340
+msgid "Activate Modern Events Calendar Now"
+msgstr ""
+
+#: mec-woocommerce.php:312
+msgid ""
+"WooCommerce Integration is not working because you need to install the "
+"Modern Events Calendar plugin"
+msgstr ""
+
+#: mec-woocommerce.php:313
+msgid "Install Modern Events Calendar Now"
+msgstr ""
+
+#: mec-woocommerce.php:339
+msgid "In order to use the plugin, please Active Modern Events Calendar Pro."
+msgstr ""
+
+#: mec-woocommerce.php:346
+msgid "In order to use the plugin, please purchase Modern Events Calendar Pro."
+msgstr ""
+
+#: mec-woocommerce.php:347
+msgid "Purchase Modern Events Calendar Now"
+msgstr ""
+
+#: mec-woocommerce.php:374
+msgid ""
+"WooCommerce Integration is not working because you need to install latest "
+"version of Modern Events Calendar plugin"
+msgstr ""
+
+#: mec-woocommerce.php:375
+msgid "Minimum version required"
+msgstr ""
+
+#: mec-woocommerce.php:376
+msgid "Update Modern Events Calendar Now"
+msgstr ""
+
+#: mec-woocommerce.php:402
+msgid ""
+"WooCommerce Integration is not working because you need to activate the "
+"WooCommerce plugin."
+msgstr ""
+
+#: mec-woocommerce.php:403
+msgid "Activate WooCommerce Now"
+msgstr ""
+
+#: mec-woocommerce.php:409
+msgid ""
+"WooCommerce Integration is not working because you need to install the "
+"WooCommerce plugin"
+msgstr ""
+
+#: mec-woocommerce.php:410
+msgid "Install WooCommerce Now"
+msgstr ""
+
+#: mec-woocommerce.php:437
+msgid ""
+"WooCommerce Integration is not working because you need to install latest "
+"version of Modern Events Calendar plugin (PRO)"
+msgstr ""
+
+#: mec-woocommerce.php:438
+msgid "Upgrade to Modern Events Calendar Pro"
+msgstr ""
+
+#: mec-woocommerce.php:499
+msgid ""
+"Your \"WooCommerce Integration for MEC\" database needs updating. To do "
+"that, click the button below and wait until the operation is over. Do not "
+"refresh the page until the end."
+msgstr ""
+
+#: mec-woocommerce.php:500
+msgid ""
+"Note: if you have many orders, the operation might take longer, please be "
+"patient."
+msgstr ""
+
+#: mec-woocommerce.php:502
+msgid "Upgrade Database Now"
+msgstr ""
+
+#: mec-woocommerce.php:511
+msgid "Updating Database..."
+msgstr ""
+
+#: mec-woocommerce.php:525
+msgid "Database has been upgraded."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Integration for MEC"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://webnus.net/modern-events-calendar/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "You can purchase ticket and WooCommerce products at the same time."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Webnus"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://webnus.net"
+msgstr ""

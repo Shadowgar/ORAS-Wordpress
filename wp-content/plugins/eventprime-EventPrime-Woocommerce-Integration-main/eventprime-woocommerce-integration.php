@@ -9,7 +9,7 @@
  * Plugin Name:       EventPrime WooCommerce Integration
  * Plugin URI:        https://theeventprime.com
  * Description:       An EventPrime extension that allows you to add optional and/ or mandatory products to your events. You can define quantity or let users chose it themselves. Fully integrates with EventPrime checkout experience and WooCommerce order management.
- * Version:           4.6
+ * Version:           4.7
  * Author:            EventPrime
  * Author URI:        https://theeventprime.com/
  * License:           GPL-2.0+
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'Eventprime_Woocommerce_Integration_VERSION', '4.6' );
+define( 'Eventprime_Woocommerce_Integration_VERSION', '4.7' );
 
 /**
  * The code that runs during plugin activation.

@@ -9,7 +9,7 @@
  * @package Astra
  * @since 1.0.0
  */
-
+	
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -127,23 +127,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const starfield = document.querySelectorAll('#nebula-canvas, #star-canvas');
         starfield.forEach(el => el.style.display = isLight ? 'none' : 'block');
 
-        // Body background & text
+        // Body background & text (global)
         document.body.style.background = isLight ? '#ffffff' : '#01010a';
         document.body.style.color = isLight ? '#000000' : '#ffffff';
 
         // Elementor Membership Portal
         const portals = document.querySelectorAll('.oras-membership-portal');
         portals.forEach(box => {
-            box.style.backgroundColor = isLight ? '#ffffff' : '#000000';
-            box.style.color = isLight ? '#000000' : '#ffffff';
-            box.querySelectorAll('*').forEach(el => {
-                el.style.color = isLight ? '#000000' : '#ffffff';
-                if(el.tagName === 'A') el.style.color = isLight ? '#0073e6' : '#1e90ff';
-                if(el.tagName === 'P' || el.tagName === 'DIV') el.style.backgroundColor = isLight ? '#ffffff' : '#000000';
-            });
+            if (!box.closest('.hero-container')) { // SKIP hero-container
+                box.style.backgroundColor = isLight ? '#ffffff' : '#000000';
+                box.style.color = isLight ? '#000000' : '#ffffff';
+                box.querySelectorAll('*').forEach(el => {
+                    if (!el.closest('.hero-container')) { // SKIP hero-container
+                        el.style.color = isLight ? '#000000' : '#ffffff';
+                        if(el.tagName === 'A') el.style.color = isLight ? '#0073e6' : '#1e90ff';
+                        if(el.tagName === 'P' || el.tagName === 'DIV') el.style.backgroundColor = isLight ? '#ffffff' : '#000000';
+                    }
+                });
+            }
         });
 
-        // WooCommerce & PMPro
+        // WooCommerce & PMPro (same as before)
         const wcPmSelectors = [
             '.woocommerce-page',
             '.woocommerce-cart table.shop_table',
@@ -162,18 +166,20 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
         wcPmSelectors.forEach(sel => {
             document.querySelectorAll(sel).forEach(el => {
-                if(isLight) {
-                    el.style.backgroundColor = (el.tagName === 'TABLE') ? '#f5f5f5' : '#ffffff';
-                    el.style.color = '#000000';
-                    if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') el.style.borderColor = '#ccc';
-                } else {
-                    if(sel.includes('table')) {
-                        el.style.backgroundColor = (sel.includes('pmpro')) ? '#1a1a1a' : '#222222';
+                if(!el.closest('.hero-container')) { // SKIP hero-container
+                    if(isLight) {
+                        el.style.backgroundColor = (el.tagName === 'TABLE') ? '#f5f5f5' : '#ffffff';
+                        el.style.color = '#000000';
+                        if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') el.style.borderColor = '#ccc';
                     } else {
-                        el.style.backgroundColor = (sel.includes('pmpro')) ? '#111' : '#222222';
+                        if(sel.includes('table')) {
+                            el.style.backgroundColor = (sel.includes('pmpro')) ? '#1a1a1a' : '#222222';
+                        } else {
+                            el.style.backgroundColor = (sel.includes('pmpro')) ? '#111' : '#222222';
+                        }
+                        el.style.color = '#ffffff';
+                        if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') el.style.borderColor = '#444';
                     }
-                    el.style.color = '#ffffff';
-                    if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') el.style.borderColor = '#444';
                 }
             });
         });
@@ -183,16 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if(header) {
             if(isLight) {
                 header.style.backgroundColor = 'rgba(0,0,0,0.85)';
-                header.querySelectorAll('*').forEach(el => {
-                    el.style.color = '#ffffff';
-                });
+                header.querySelectorAll('*').forEach(el => el.style.color = '#ffffff');
             } else {
                 if(!header.classList.contains('elementor-sticky--effects')) {
                     header.style.backgroundColor = 'transparent';
                 }
-                header.querySelectorAll('*').forEach(el => {
-                    el.style.color = ''; // reset to theme default
-                });
+                header.querySelectorAll('*').forEach(el => el.style.color = '');
             }
         }
 
@@ -213,24 +215,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
 		
 </script>
-
-
-
-
-
-
-
-
-
-
 
 
 
 <?php
 	astra_body_bottom();
 	wp_footer();
+
+	// ✅ Load ORAS MEC custom stylesheet only if Modern Events Calendar is active
+	if ( class_exists( 'MEC' ) ) :
 ?>
-	</body>
+<link rel="stylesheet"
+	  id="oras-mec-custom-css"
+	  href="<?php echo esc_url( get_stylesheet_directory_uri() . '/oras-mec.css' ); ?>"
+	  type="text/css"
+	  media="all" />
+<?php endif; ?>
+
+</body>
 </html>

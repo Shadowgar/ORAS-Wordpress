@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) die('No direct access allowed');
 
-// WP-Optimize advanced-cache.php (written by version: 4.2.4) (homeurl: https://oras.educationalconsultingsolutions.org/) (abspath: /var/www/html/oras/) (do not change this line, it is used for correctness checks)
+// WP-Optimize advanced-cache.php (written by version: 4.3.0) (homeurl: https://oras.educationalconsultingsolutions.org/) (abspath: /var/www/html/oras/) (do not change this line, it is used for correctness checks)
 
 if (!defined('WPO_ADVANCED_CACHE')) define('WPO_ADVANCED_CACHE', true);
 

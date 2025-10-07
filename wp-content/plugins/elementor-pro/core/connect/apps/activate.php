@@ -100,7 +100,6 @@ class Activate extends Common_App {
 		License\Admin::set_license_key( $license_key );
 
 		License\API::set_license_data( $data );
-		//Nulled by Mrsam_1 ( Babiato.tech) 
 		$this->request( 'set_site_owner' );
 		$this->add_notice( esc_html__( 'License has been activated successfully.', 'elementor-pro' ) );
 
@@ -122,6 +121,7 @@ class Activate extends Common_App {
 			'templates_access_level' => API::get_library_access_level( 'template' ),
 			'kits_access_level' => API::get_library_access_level( 'kit' ),
 			'access_tier' => API::get_access_tier(),
+			'plan_type' => API::get_plan_type(),
 		];
 	}
 

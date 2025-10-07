@@ -468,7 +468,7 @@ class Eventprime_Woocommerce_Integration_Admin {
 	}
 
 	public function check_woo_ep_currency() {
-		if ( class_exists( 'Eventprime_Basic_Functions' ) ) {
+		if ( class_exists( 'Eventprime_Basic_Functions' ) && class_exists( 'WooCommerce' ) ) {
 			$ep_functions = new Eventprime_Basic_Functions;
 			$currency = $ep_functions->ep_get_global_settings( 'currency' );
 			$woo_currency = get_option('woocommerce_currency');

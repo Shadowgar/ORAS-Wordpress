@@ -1,0 +1,299 @@
+/* =======================================================
+   ORAS Custom Modern Events Calendar Styling
+   ======================================================= */
+
+/* === Single Event: one full-width glass pane === */
+.mec-single-event {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+  margin: 2rem 0;         /* vertical spacing only */
+  width: 100%;
+  box-sizing: border-box; /* include padding in width */
+}
+
+/* Make the pane **truly full-bleed** across the viewport on MEC single pages */
+body.single-mec-events .mec-single-event {
+  border-radius: 0;             /* no rounded edges against viewport edge */
+  width: 100vw;                 /* full viewport width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* (Optional) soften on very small screens */
+@media (max-width: 640px) {
+  body.single-mec-events .mec-single-event {
+    padding: 1.25rem;
+  }
+}
+
+/* Headings */
+.mec-single-event h1,
+.mec-single-event h2,
+.mec-single-event h3,
+.mec-single-event h4,
+.mec-single-event h5,
+.mec-single-event h6 {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Event title */
+.mec-event-title,
+.mec-single-event .mec-event-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3rem;
+}
+
+/* Meta blocks (kept subtle; no extra panes) */
+.mec-event-meta,
+.mec-single-event .mec-single-event-meta,
+.mec-single-event .mec-events-meta-group {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Links */
+.mec-single-event a {
+  color: #4eaaff;
+  text-decoration: none;
+}
+.mec-single-event a:hover {
+  color: #1e90ff;
+}
+
+/* Buttons */
+.mec-booking-button,
+.mec-btn,
+.mec-single-event input[type="submit"],
+.mec-single-event button {
+  background: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+}
+.mec-booking-button:hover,
+.mec-btn:hover,
+.mec-single-event input[type="submit"]:hover,
+.mec-single-event button:hover {
+  background: #005bb5;
+  transform: translateY(-2px);
+}
+
+/* =======================================================
+   Booking Module (no extra glass panes)
+   ======================================================= */
+
+/* Remove nested "pane" look from booking wrappers */
+.mec-events-meta-group-booking,
+.mec-single-modern-booking,
+.mec-booking-wrapper {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 1.5rem 0;
+  margin-top: 1.5rem;
+  color: #fff;
+}
+
+/* Booking section titles */
+.mec-events-meta-group-booking h4,
+.mec-single-modern-booking h4 {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Booking form fields */
+.mec-booking input[type="text"],
+.mec-booking input[type="email"],
+.mec-booking input[type="number"],
+.mec-booking select,
+.mec-booking textarea {
+  width: 100%;
+  background: rgba(34, 34, 34, 0.75);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.mec-booking input:focus,
+.mec-booking select:focus,
+.mec-booking textarea:focus {
+  border-color: #0073e6;
+  box-shadow: 0 0 6px #0073e6;
+  outline: none;
+}
+
+/* Submit buttons (booking) */
+.mec-booking-button,
+.mec-booking input[type="submit"] {
+  display: inline-block;
+  background-color: #0073e6;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.mec-booking-button:hover,
+.mec-booking input[type="submit"]:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
+
+/* Price details */
+.mec-book-price-details {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  color: #ccc;
+}
+.mec-book-price-details li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mec-book-price-details li span {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Success / error messages */
+.mec-message,
+.mec-error {
+  background: rgba(50, 50, 50, 0.8);
+  border-left: 4px solid #0073e6;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* =======================================================
+   Booking Calendar (minimal, within the main pane)
+   ======================================================= */
+
+/* Calendar container—transparent so it feels part of the main pane */
+.mec-booking-calendar,
+.mec-booking-calendar .mec-calendar {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #ddd;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+/* Header row / month nav */
+.mec-booking-calendar-month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 30, 40, 0.35);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mec-booking-calendar-month-navigation .mec-previous-month,
+.mec-booking-calendar-month-navigation .mec-next-month {
+  background: rgba(40, 40, 60, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.25s ease;
+}
+.mec-booking-calendar-month-navigation .mec-previous-month:hover,
+.mec-booking-calendar-month-navigation .mec-next-month:hover {
+  background: #0073e6;
+}
+
+/* Cells */
+.mec-booking-calendar .mec-calendar-row dt {
+  padding: 0.55rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mec-booking-calendar .mec-calendar-row dt:hover {
+  background: rgba(0, 115, 230, 0.25);
+  color: #fff;
+}
+.mec-booking-calendar dt.mec-selected-date {
+  background: #0073e6;
+  color: #fff;
+  font-weight: 600;
+  border-color: #0073e6;
+}
+
+/* =======================================================
+   Related Events / Widgets (no extra panes)
+   ======================================================= */
+.mec-related-events-wrap,
+.mec-widget {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* =======================================================
+   Light Mode Overrides
+   ======================================================= */
+body.light-mode .mec-single-event {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+body.light-mode .mec-single-event h1,
+body.light-mode .mec-single-event h2,
+body.light-mode .mec-single-event h3,
+body.light-mode .mec-single-event h4 {
+  color: #000;
+}
+body.light-mode .mec-single-event a {
+  color: #0073e6;
+}
+body.light-mode .mec-single-event a:hover {
+  color: #005bb5;
+}
+body.light-mode .mec-booking input[type="text"],
+body.light-mode .mec-booking input[type="email"],
+body.light-mode .mec-booking input[type="number"],
+body.light-mode .mec-booking select,
+body.light-mode .mec-booking textarea {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+body.light-mode .mec-booking-button,
+body.light-mode .mec-btn {
+  background: #0073e6;
+  color: #fff;
+}
