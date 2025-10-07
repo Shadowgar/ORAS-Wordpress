@@ -222,18 +222,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <?php
-	astra_body_bottom();
-	wp_footer();
-
-	// ✅ Load ORAS MEC custom stylesheet only if Modern Events Calendar is active
-	if ( class_exists( 'MEC' ) ) :
+        astra_body_bottom();
+        wp_footer();
 ?>
-<link rel="stylesheet"
-	  id="oras-mec-custom-css"
-	  href="<?php echo esc_url( get_stylesheet_directory_uri() . '/oras-mec.css' ); ?>"
-	  type="text/css"
-	  media="all" />
-<?php endif; ?>
 
 </body>
 </html>
