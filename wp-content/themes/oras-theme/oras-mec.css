@@ -14,7 +14,6 @@
   padding: 2rem;
   margin: 2rem 0;         /* vertical spacing only */
   width: 100%;
-  box-sizing: border-box; /* include padding in width */
 }
 
 /* Make the pane **truly full-bleed** across the viewport on MEC single pages */
@@ -26,10 +25,10 @@ body.single-mec-events .mec-single-event {
   margin-right: calc(50% - 50vw);
 }
 
-/* (Optional) soften on very small screens */
 @media (max-width: 640px) {
-  body.single-mec-events .mec-single-event {
-    padding: 1.25rem;
+  .oras-mec-single {
+    padding: 1.5rem;
+    border-radius: 14px;
   }
 }
 
@@ -382,21 +381,24 @@ body.single-mec-events .mec-single-event {
 /* =======================================================
    Light Mode Overrides
    ======================================================= */
-body.light-mode .mec-single-event {
+body.light-mode .oras-mec-single {
   background: rgba(255, 255, 255, 0.9);
-  color: #000;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  color: #0d1a33;
 }
-body.light-mode .mec-single-event h1,
-body.light-mode .mec-single-event h2,
-body.light-mode .mec-single-event h3,
-body.light-mode .mec-single-event h4 {
-  color: #000;
+body.light-mode .oras-mec-single .mec-single-event h1,
+body.light-mode .oras-mec-single .mec-single-event h2,
+body.light-mode .oras-mec-single .mec-single-event h3,
+body.light-mode .oras-mec-single .mec-single-event h4,
+body.light-mode .oras-mec-single .mec-single-event h5,
+body.light-mode .oras-mec-single .mec-single-event h6 {
+  color: #0d1a33;
 }
-body.light-mode .mec-single-event a {
+body.light-mode .oras-mec-single .mec-single-event a {
   color: #0073e6;
 }
-body.light-mode .mec-single-event a:hover {
+body.light-mode .oras-mec-single .mec-single-event a:hover {
   color: #005bb5;
 }
 body.light-mode .mec-booking input[type="text"],
