@@ -207,41 +207,15 @@ function oras_theme_mec_context_active( $post = null ) {
  * Enqueue Modern Events Calendar overrides within the child theme.
  */
 function oras_theme_enqueue_mec_overrides() {
-    if ( ! class_exists( 'MEC' ) ) {
+    if ( ! oras_theme_mec_context_active() ) {
         return;
-    }
-
-    $should_enqueue = oras_theme_mec_context_active();
-
-    $known_mec_handles = array(
-        'mec-frontend-style',
-        'mec-general-calendar-style',
-        'mec-calendar-style',
-        'mec-events-display-style',
-    );
-
-    $dependencies = array();
-
-    foreach ( $known_mec_handles as $handle ) {
-        if ( wp_style_is( $handle, 'enqueued' ) ) {
-            $dependencies[] = $handle;
-            $should_enqueue = true;
-        }
-    }
-
-    if ( ! $should_enqueue ) {
-        return;
-    }
-
-    if ( empty( $dependencies ) ) {
-        $dependencies[] = 'astra-theme-css';
     }
 
     wp_enqueue_style(
         'oras-mec-custom',
         get_stylesheet_directory_uri() . '/oras-mec.css',
-        array_unique( $dependencies ),
-        filemtime( get_stylesheet_directory() . '/oras-mec.css' )
+        array(),
+        CHILD_THEME_ORAS_THEME_VERSION
     );
 }
-add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 200 );
+add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 20 );
