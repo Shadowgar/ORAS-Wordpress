@@ -3,13 +3,14 @@
    ======================================================= */
 
 /* === Single Event: one full-width glass pane === */
+.mec-wrap .mec-single-event,
 .mec-single-event {
   color: #fff;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35) !important;
   padding: 2rem;
   margin: 2rem 0;         /* vertical spacing only */
   width: 100%;
@@ -17,6 +18,7 @@
 }
 
 /* Make the pane **truly full-bleed** across the viewport on MEC single pages */
+body.single-mec-events .mec-wrap .mec-single-event,
 body.single-mec-events .mec-single-event {
   border-radius: 0;             /* no rounded edges against viewport edge */
   width: 100vw;                 /* full viewport width */

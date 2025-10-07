@@ -11,15 +11,19 @@
 /**
  * Define Constants
  */
-define( 'CHILD_THEME_ORAS_THEME_VERSION', '1.0.0' );
+$oras_theme = wp_get_theme();
+define( 'CHILD_THEME_ORAS_THEME_VERSION', $oras_theme->get( 'Version' ) ?: '1.0.0' );
 
 /**
  * Enqueue styles
  */
 function child_enqueue_styles() {
-
-	wp_enqueue_style( 'oras-theme-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_ORAS_THEME_VERSION, 'all' );
-
+        wp_enqueue_style(
+                'oras-theme-style',
+                get_stylesheet_uri(),
+                array( 'astra-theme-css' ),
+                CHILD_THEME_ORAS_THEME_VERSION
+        );
 }
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
@@ -147,3 +151,222 @@ function oras_login_button_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('oras_login_button', 'oras_login_button_shortcode');
+
+/**
+ * Determine whether the current request should load Modern Events Calendar overrides.
+ *
+ * @param WP_Post|null $post Optional post object for shortcode/block detection.
+ * @return bool
+ */
+function oras_theme_mec_context_active( $post = null ) {
+    if ( ! class_exists( 'MEC' ) ) {
+        return false;
+    }
+
+    if ( is_singular( 'mec-events' ) || is_post_type_archive( 'mec-events' ) ) {
+        return true;
+    }
+
+    if ( is_tax( array( 'mec_category', 'mec_location', 'mec_organizer', 'mec_tag' ) ) ) {
+        return true;
+    }
+
+    if ( null === $post ) {
+        $post = get_queried_object();
+    }
+
+    if ( ! $post instanceof WP_Post && isset( $GLOBALS['post'] ) && $GLOBALS['post'] instanceof WP_Post ) {
+        // Fallback for contexts where wp_enqueue_scripts fires before the main $post is primed.
+        $post = $GLOBALS['post'];
+    }
+
+    if ( ! $post instanceof WP_Post ) {
+        return false;
+    }
+
+    $post_id = (int) $post->ID;
+
+    static $checked_posts = array();
+    if ( $post_id && array_key_exists( $post_id, $checked_posts ) ) {
+        return (bool) $checked_posts[ $post_id ];
+    }
+
+    if ( $post_id ) {
+        $checked_posts[ $post_id ] = false;
+    }
+
+    $mec_shortcodes = array( 'MEC', 'mec', 'modern_events_calendar', 'MEC_fes_form', 'MEC_single_builder' );
+    foreach ( $mec_shortcodes as $shortcode ) {
+        if ( has_shortcode( $post->post_content, $shortcode ) ) {
+            if ( $post_id ) {
+                $checked_posts[ $post_id ] = true;
+            }
+
+            return true;
+        }
+    }
+
+    if ( false !== stripos( $post->post_content, '[elementor-template' ) ) {
+        if ( preg_match_all( '/\[elementor-template\s+id="?(\d+)"?\]/i', $post->post_content, $matches ) ) {
+            foreach ( $matches[1] as $template_id ) {
+                $template_post = get_post( (int) $template_id );
+
+                if ( $template_post && oras_theme_mec_context_active( $template_post ) ) {
+                    if ( $post_id ) {
+                        $checked_posts[ $post_id ] = true;
+                    }
+
+                    return true;
+                }
+            }
+        }
+    }
+
+    if ( function_exists( 'has_block' ) ) {
+        $mec_blocks = array( 'mec/events', 'mec/calendar', 'mec/single', 'mec/shortcode' );
+        foreach ( $mec_blocks as $block_name ) {
+            if ( has_block( $block_name, $post ) ) {
+                if ( $post_id ) {
+                    $checked_posts[ $post_id ] = true;
+                }
+
+                return true;
+            }
+        }
+    }
+
+    if ( $post_id ) {
+        $elementor_data = get_post_meta( $post_id, '_elementor_data', true );
+
+        if ( is_string( $elementor_data ) && '' !== $elementor_data ) {
+            $decoded_data = json_decode( wp_unslash( $elementor_data ), true );
+
+            if ( json_last_error() !== JSON_ERROR_NONE ) {
+                $decoded_data = json_decode( $elementor_data, true );
+            }
+
+            if ( is_array( $decoded_data ) && oras_theme_elementor_nodes_contain_mec( $decoded_data ) ) {
+                $checked_posts[ $post_id ] = true;
+
+                return true;
+            }
+        }
+    }
+
+    if ( $post_id ) {
+        $checked_posts[ $post_id ] = false;
+    }
+
+    return false;
+}
+
+/**
+ * Recursively inspect Elementor document nodes for Modern Events Calendar usage.
+ *
+ * @param array $nodes Elementor document structure.
+ * @return bool
+ */
+function oras_theme_elementor_nodes_contain_mec( $nodes ) {
+    if ( empty( $nodes ) || ! is_array( $nodes ) ) {
+        return false;
+    }
+
+    foreach ( $nodes as $node ) {
+        if ( ! is_array( $node ) ) {
+            continue;
+        }
+
+        if ( isset( $node['widgetType'] ) && is_string( $node['widgetType'] ) && false !== stripos( $node['widgetType'], 'mec' ) ) {
+            return true;
+        }
+
+        if ( isset( $node['elType'] ) && 'widget' === $node['elType'] && isset( $node['widgetType'] ) ) {
+            $widget_type = strtolower( (string) $node['widgetType'] );
+
+            if ( false !== strpos( $widget_type, 'mec' ) ) {
+                return true;
+            }
+        }
+
+        if ( isset( $node['settings'] ) && oras_theme_elementor_setting_contains_mec( $node['settings'] ) ) {
+            return true;
+        }
+
+        if ( isset( $node['elements'] ) && oras_theme_elementor_nodes_contain_mec( $node['elements'] ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Inspect an Elementor widget/section setting for MEC-specific markers.
+ *
+ * @param mixed $value Elementor setting value.
+ * @return bool
+ */
+function oras_theme_elementor_setting_contains_mec( $value ) {
+    if ( is_string( $value ) ) {
+        $value_lower = strtolower( $value );
+
+        if ( false !== strpos( $value_lower, '[mec' ) || false !== strpos( $value_lower, 'modern-events-calendar' ) ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    if ( is_array( $value ) ) {
+        foreach ( $value as $nested ) {
+            if ( oras_theme_elementor_setting_contains_mec( $nested ) ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Enqueue Modern Events Calendar overrides within the child theme.
+ */
+function oras_theme_enqueue_mec_overrides() {
+    if ( ! class_exists( 'MEC' ) ) {
+        return;
+    }
+
+    $should_enqueue = oras_theme_mec_context_active();
+
+    $known_mec_handles = array(
+        'mec-frontend-style',
+        'mec-general-calendar-style',
+        'mec-calendar-style',
+        'mec-events-display-style',
+    );
+
+    $dependencies = array();
+
+    foreach ( $known_mec_handles as $handle ) {
+        if ( wp_style_is( $handle, 'enqueued' ) ) {
+            $dependencies[] = $handle;
+            $should_enqueue = true;
+        }
+    }
+
+    if ( ! $should_enqueue ) {
+        return;
+    }
+
+    if ( empty( $dependencies ) ) {
+        $dependencies[] = 'astra-theme-css';
+    }
+
+    wp_enqueue_style(
+        'oras-mec-custom',
+        get_stylesheet_directory_uri() . '/oras-mec.css',
+        array_unique( $dependencies ),
+        filemtime( get_stylesheet_directory() . '/oras-mec.css' )
+    );
+}
+add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 200 );
