@@ -3,13 +3,14 @@
    ======================================================= */
 
 /* === Single Event: one full-width glass pane === */
+.mec-wrap .mec-single-event,
 .mec-single-event {
   color: #fff;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35) !important;
   padding: 2rem;
   margin: 2rem 0;         /* vertical spacing only */
   width: 100%;
@@ -17,6 +18,7 @@
 }
 
 /* Make the pane **truly full-bleed** across the viewport on MEC single pages */
+body.single-mec-events .mec-wrap .mec-single-event,
 body.single-mec-events .mec-single-event {
   border-radius: 0;             /* no rounded edges against viewport edge */
   width: 100vw;                 /* full viewport width */
@@ -264,6 +266,120 @@ body.single-mec-events .mec-single-event {
 }
 
 /* =======================================================
+   Search & Filter Forms
+   ======================================================= */
+.mec-search-form {
+  background: rgba(255, 255, 255, 0.05) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  padding: 1.5rem;
+  color: #fff;
+  gap: 1rem;
+}
+
+.mec-search-form label,
+.mec-search-form i {
+  color: #d6e7ff !important;
+}
+
+.mec-search-form select,
+.mec-search-form input[type="search"],
+.mec-search-form input[type="text"],
+.mec-search-form input[type="number"],
+.mec-search-form input[type="email"] {
+  background: rgba(26, 26, 26, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px;
+  color: #fff !important;
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+}
+
+.mec-search-form select:focus,
+.mec-search-form input:focus {
+  border-color: #4eaaff !important;
+  box-shadow: 0 0 8px rgba(78, 170, 255, 0.6);
+  outline: none;
+}
+
+.mec-search-form .mec-dropdown-wrap,
+.mec-search-form .mec-date-search,
+.mec-search-form .mec-text-input-search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mec-search-form .mec-dropdown-search,
+.mec-search-form .mec-date-search,
+.mec-search-form .mec-text-input-search {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.75rem;
+  flex: 1 1 200px;
+  position: relative;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mec-search-form .mec-dropdown-search i,
+.mec-search-form .mec-date-search i,
+.mec-search-form .mec-text-input-search i {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.mec-search-form .mec-date-search select {
+  width: auto;
+  min-width: 130px;
+}
+
+.mec-search-form .mec-search-reset-button {
+  display: flex;
+  align-items: flex-end;
+}
+
+.mec-search-form .mec-search-reset-button .button,
+.mec-search-form .mec-search-reset-button button,
+.mec-search-form button.mec-button {
+  background: #0073e6 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mec-search-form .mec-search-reset-button .button:hover,
+.mec-search-form .mec-search-reset-button button:hover,
+.mec-search-form button.mec-button:hover {
+  background: #005bb5 !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .mec-search-form {
+    padding: 1.1rem;
+  }
+
+  .mec-search-form .mec-dropdown-search,
+  .mec-search-form .mec-date-search,
+  .mec-search-form .mec-text-input-search {
+    flex: 1 1 100%;
+  }
+}
+
+/* =======================================================
    Light Mode Overrides
    ======================================================= */
 body.light-mode .mec-single-event {
@@ -296,4 +412,325 @@ body.light-mode .mec-booking-button,
 body.light-mode .mec-btn {
   background: #0073e6;
   color: #fff;
+}
+body.light-mode .mec-search-form {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  color: #000;
+}
+body.light-mode .mec-search-form label,
+body.light-mode .mec-search-form i {
+  color: #002c5c !important;
+}
+body.light-mode .mec-search-form select,
+body.light-mode .mec-search-form input[type="search"],
+body.light-mode .mec-search-form input[type="text"],
+body.light-mode .mec-search-form input[type="number"],
+body.light-mode .mec-search-form input[type="email"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #000 !important;
+}
+body.light-mode .mec-search-form .mec-dropdown-search,
+body.light-mode .mec-search-form .mec-date-search,
+body.light-mode .mec-search-form .mec-text-input-search {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* =======================================================
+   Monthly Calendar (Grid / Novel Layout)
+   ======================================================= */
+.mec-calendar-side {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  padding: 1.75rem;
+  color: #fff;
+}
+
+.mec-calendar-side .mec-skin-monthly-view-month-navigator-container {
+  margin-bottom: 1.25rem;
+}
+
+.mec-calendar-side .mec-month-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mec-calendar-side .mec-month-navigator .mec-previous-month,
+.mec-calendar-side .mec-month-navigator .mec-next-month {
+  flex: 1 1 0;
+}
+
+.mec-calendar-side .mec-month-navigator .mec-previous-month a,
+.mec-calendar-side .mec-month-navigator .mec-next-month a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(78, 170, 255, 0.14);
+  color: #4eaaff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
+.mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
+  background: rgba(78, 170, 255, 0.28);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.mec-calendar-side .mec-calendar-header h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.mec-calendar-side .mec-calendar-table {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.mec-calendar-side .mec-calendar-table-head,
+.mec-calendar-side .mec-calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin: 0;
+}
+
+.mec-calendar-side .mec-calendar-day-head {
+  padding: 0.75rem 0.4rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mec-calendar-side .mec-calendar-day,
+.mec-calendar-side .mec-table-nullday {
+  position: relative;
+  min-height: 110px;
+  padding: 0.75rem 0.65rem 0.85rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.86);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mec-calendar-side .mec-calendar-row dt:last-child {
+  border-right: none;
+}
+
+.mec-calendar-side .mec-calendar-day:hover {
+  background: rgba(78, 170, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(78, 170, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.mec-calendar-side .mec-table-nullday {
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.mec-calendar-side .mec-calendar-day.mec-selected-day {
+  background: rgba(78, 170, 255, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(78, 170, 255, 0.45);
+}
+
+.mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mec-calendar-side .mec-single-event-novel {
+  margin-top: 0.35rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  color: #fff !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.mec-calendar-side .mec-single-event-novel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  background: rgba(78, 170, 255, 0.28) !important;
+}
+
+.mec-calendar-side .mec-single-event-novel .mec-event-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.mec-calendar-side .event-single-link-novel {
+  text-decoration: none;
+}
+
+.mec-calendar-side .mec-sl-angle-left,
+.mec-calendar-side .mec-sl-angle-right,
+.mec-calendar-side .mec-sl-folder,
+.mec-calendar-side .mec-sl-location-pin,
+.mec-calendar-side .mec-sl-tag,
+.mec-calendar-side .mec-sl-pin,
+.mec-calendar-side .mec-sl-calendar,
+.mec-calendar-side .mec-sl-magnifier {
+  color: #4eaaff;
+}
+
+@media (max-width: 1024px) {
+  .mec-calendar-side {
+    padding: 1.25rem;
+  }
+
+  .mec-calendar-side .mec-calendar-day,
+  .mec-calendar-side .mec-table-nullday {
+    min-height: 90px;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.45rem 0.7rem;
+  }
+
+  .mec-calendar-side .mec-month-navigator {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mec-calendar-side .mec-month-navigator {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .mec-calendar-side .mec-month-navigator .mec-previous-month,
+  .mec-calendar-side .mec-month-navigator .mec-next-month {
+    width: 100%;
+  }
+}
+
+body.light-mode .mec-calendar-side {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #10122d;
+}
+
+body.light-mode .mec-calendar-side .mec-month-navigator {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-previous-month a,
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-next-month a {
+  background: rgba(0, 115, 230, 0.14);
+  color: #005bb5;
+}
+
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
+  background: rgba(0, 115, 230, 0.25);
+  color: #fff;
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-table {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-day-head {
+  color: rgba(16, 18, 45, 0.7);
+  background: rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-day,
+body.light-mode .mec-calendar-side .mec-table-nullday {
+  color: rgba(16, 18, 45, 0.85);
+  background: rgba(255, 255, 255, 0.82);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-day:hover {
+  background: rgba(0, 115, 230, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(0, 115, 230, 0.35);
+}
+
+body.light-mode .mec-calendar-side .mec-table-nullday {
+  color: rgba(16, 18, 45, 0.38);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-day.mec-selected-day {
+  background: rgba(0, 115, 230, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(0, 115, 230, 0.45);
+  color: #fff;
+}
+
+body.light-mode .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
+  background: rgba(0, 0, 0, 0.08);
+  color: #005bb5;
+}
+
+body.light-mode .mec-calendar-side .mec-single-event-novel {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #10122d !important;
+}
+
+body.light-mode .mec-calendar-side .mec-single-event-novel:hover {
+  background: rgba(0, 115, 230, 0.2) !important;
+  color: #fff !important;
+}
+
+body.light-mode .mec-calendar-side .mec-single-event-novel .mec-event-title {
+  color: inherit;
+}
+
+body.light-mode .mec-calendar-side .mec-sl-angle-left,
+body.light-mode .mec-calendar-side .mec-sl-angle-right,
+body.light-mode .mec-calendar-side .mec-sl-folder,
+body.light-mode .mec-calendar-side .mec-sl-location-pin,
+body.light-mode .mec-calendar-side .mec-sl-tag,
+body.light-mode .mec-calendar-side .mec-sl-pin,
+body.light-mode .mec-calendar-side .mec-sl-calendar,
+body.light-mode .mec-calendar-side .mec-sl-magnifier {
+  color: #005bb5;
 }
