@@ -147,3 +147,71 @@ function oras_login_button_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('oras_login_button', 'oras_login_button_shortcode');
+
+/**
+ * Determine whether the current request should load Modern Events Calendar overrides.
+ *
+ * @param WP_Post|null $post Optional post object for shortcode/block detection.
+ * @return bool
+ */
+function oras_theme_mec_context_active( $post = null ) {
+    if ( ! class_exists( 'MEC' ) ) {
+        return false;
+    }
+
+    if ( is_singular( 'mec-events' ) || is_post_type_archive( 'mec-events' ) ) {
+        return true;
+    }
+
+    if ( is_tax( array( 'mec_category', 'mec_location', 'mec_organizer', 'mec_tag' ) ) ) {
+        return true;
+    }
+
+    if ( null === $post ) {
+        $post = get_queried_object();
+    }
+
+    if ( ! $post instanceof WP_Post && isset( $GLOBALS['post'] ) && $GLOBALS['post'] instanceof WP_Post ) {
+        // Fallback for contexts where wp_enqueue_scripts fires before the main $post is primed.
+        $post = $GLOBALS['post'];
+    }
+
+    if ( ! $post instanceof WP_Post ) {
+        return false;
+    }
+
+    $mec_shortcodes = array( 'MEC', 'mec', 'modern_events_calendar', 'MEC_fes_form', 'MEC_single_builder' );
+    foreach ( $mec_shortcodes as $shortcode ) {
+        if ( has_shortcode( $post->post_content, $shortcode ) ) {
+            return true;
+        }
+    }
+
+    if ( function_exists( 'has_block' ) ) {
+        $mec_blocks = array( 'mec/events', 'mec/calendar', 'mec/single', 'mec/shortcode' );
+        foreach ( $mec_blocks as $block_name ) {
+            if ( has_block( $block_name, $post ) ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Enqueue Modern Events Calendar overrides within the child theme.
+ */
+function oras_theme_enqueue_mec_overrides() {
+    if ( ! oras_theme_mec_context_active() ) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'oras-mec-custom',
+        get_stylesheet_directory_uri() . '/oras-mec.css',
+        array(),
+        CHILD_THEME_ORAS_THEME_VERSION
+    );
+}
+add_action( 'wp_enqueue_scripts', 'oras_theme_enqueue_mec_overrides', 20 );
