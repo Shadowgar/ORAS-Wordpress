@@ -2,341 +2,27 @@
    ORAS Custom Modern Events Calendar Styling
    ======================================================= */
 
-/* =======================================================
-   Global Base & Typography
-   ======================================================= */
-body .mec-wrap {
-  color: #dbe6ff;
-  --oras-mec-pane-bg: rgba(255, 255, 255, 0.05);
-  --oras-mec-pane-border: rgba(255, 255, 255, 0.12);
-  --oras-mec-pane-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-}
-
-body .mec-wrap p,
-body .mec-wrap li,
-body .mec-wrap .mec-single-event-description,
-body .mec-wrap .mec-event-description {
-  color: #ced9ff;
-}
-
-body .mec-wrap h1,
-body .mec-wrap h2,
-body .mec-wrap h3,
-body .mec-wrap h4,
-body .mec-wrap h5,
-body .mec-wrap h6 {
-  color: #ffffff !important;
-  font-weight: 600;
-  letter-spacing: 0.045em;
-}
-
-body .mec-wrap a {
-  color: #4eaaff;
-  transition: color 0.25s ease, opacity 0.25s ease;
-}
-
-body .mec-wrap a:hover,
-body .mec-wrap a:focus {
-  color: #86c9ff;
-  opacity: 0.9;
-}
-
-/* Shared pane treatment */
-body .mec-wrap .mec-event-article,
-body .mec-wrap .mec-event-list-classic .mec-event-article,
-body .mec-wrap .mec-event-grid-classic .mec-event-article,
-body .mec-wrap .mec-event-info,
-body .mec-wrap .mec-box-calendar,
-body .mec-wrap .mec-calendar,
-body .mec-wrap .mec-map-single {
-  background: var(--oras-mec-pane-bg) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid var(--oras-mec-pane-border) !important;
-  border-radius: 16px;
-  box-shadow: var(--oras-mec-pane-shadow) !important;
+/* === Single Event: one full-width glass pane === */
+.mec-wrap .mec-single-event,
+.mec-single-event {
   color: #fff;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35) !important;
+  padding: 2rem;
+  margin: 2rem 0;         /* vertical spacing only */
+  width: 100%;
 }
 
-body .mec-wrap .mec-event-article {
-  padding: 1.5rem;
-}
-
-body .mec-wrap .mec-event-article .mec-event-meta,
-body .mec-wrap .mec-event-article .mec-event-footer,
-body .mec-wrap .mec-event-article .mec-event-detail,
-body .mec-wrap .mec-event-article .mec-event-content,
-body .mec-wrap .mec-event-article .mec-event-location,
-body .mec-wrap .mec-event-article .mec-event-bottom,
-body .mec-wrap .mec-event-article .mec-event-contact,
-body .mec-wrap .mec-event-article .mec-event-social {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  color: inherit;
-}
-
-body .mec-wrap .mec-event-article .mec-event-title a,
-body .mec-wrap .mec-event-article .mec-event-title {
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-body .mec-wrap .mec-event-article .mec-event-title a:hover {
-  color: #86c9ff;
-}
-
-body .mec-wrap .mec-event-article .mec-event-date,
-body .mec-wrap .mec-event-article .mec-event-time,
-body .mec-wrap .mec-event-article .mec-event-cost,
-body .mec-wrap .mec-event-article .mec-event-categories,
-body .mec-wrap .mec-event-article .mec-event-loc {
-  color: rgba(223, 232, 255, 0.85);
-}
-
-body .mec-wrap .mec-event-article .mec-event-date .mec-start-date,
-body .mec-wrap .mec-event-article .mec-event-date .mec-end-date {
-  background: rgba(78, 170, 255, 0.18);
-  border: 1px solid rgba(78, 170, 255, 0.3);
-  border-radius: 10px;
-  padding: 0.35rem 0.75rem;
-  display: inline-block;
-}
-
-body.light-mode .mec-wrap .mec-event-article .mec-event-title a,
-body.light-mode .mec-wrap .mec-event-article .mec-event-title {
-  color: #0d1a33;
-}
-
-body.light-mode .mec-wrap .mec-event-article .mec-event-title a:hover {
-  color: #005bb5;
-}
-
-body.light-mode .mec-wrap .mec-event-article .mec-event-date,
-body.light-mode .mec-wrap .mec-event-article .mec-event-time,
-body.light-mode .mec-wrap .mec-event-article .mec-event-cost,
-body.light-mode .mec-wrap .mec-event-article .mec-event-categories,
-body.light-mode .mec-wrap .mec-event-article .mec-event-loc {
-  color: rgba(16, 24, 48, 0.8);
-}
-
-body.light-mode .mec-wrap .mec-event-article .mec-event-date .mec-start-date,
-body.light-mode .mec-wrap .mec-event-article .mec-event-date .mec-end-date {
-  background: rgba(0, 115, 230, 0.12);
-  border: 1px solid rgba(0, 115, 230, 0.2);
-  color: #0d1a33;
-}
-
-/* Inputs */
-body .mec-wrap input[type="text"],
-body .mec-wrap input[type="email"],
-body .mec-wrap input[type="number"],
-body .mec-wrap input[type="search"],
-body .mec-wrap input[type="tel"],
-body .mec-wrap input[type="url"],
-body .mec-wrap input[type="password"],
-body .mec-wrap select,
-body .mec-wrap textarea,
-body .mec-wrap .nice-select {
-  background: rgba(26, 26, 36, 0.75) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 8px !important;
-  color: #ffffff !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-body .mec-wrap input:focus,
-body .mec-wrap select:focus,
-body .mec-wrap textarea:focus,
-body .mec-wrap .nice-select:focus {
-  border-color: #4eaaff !important;
-  box-shadow: 0 0 12px rgba(78, 170, 255, 0.45);
-  outline: none;
-}
-
-/* Buttons */
-body .mec-wrap .button,
-body .mec-wrap a.button,
-body .mec-wrap button:not(.owl-dot):not(.gm-control-active):not(.mejs-button):not(.mec-googlemap-details button):not(.dismissButton),
-body .mec-wrap input[type="submit"],
-body .mec-wrap input[type="reset"],
-body .mec-wrap input[type="button"],
-body .mec-wrap .mec-booking-button,
-body .mec-wrap .mec-load-more-button,
-body .mec-wrap .mec-load-more-btn,
-body .mec-wrap .mec-nextprev-next-button,
-body .mec-wrap .mec-nextprev-prev-button {
-  background: linear-gradient(135deg, #0a7aff, #34b8ff) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 999px !important;
-  box-shadow: 0 12px 24px rgba(0, 122, 255, 0.35);
-  color: #ffffff !important;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.75rem 1.9rem !important;
-  text-transform: uppercase;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-body .mec-wrap .button:hover,
-body .mec-wrap a.button:hover,
-body .mec-wrap button:not(.owl-dot):not(.gm-control-active):not(.mejs-button):not(.mec-googlemap-details button):not(.dismissButton):hover,
-body .mec-wrap input[type="submit"]:hover,
-body .mec-wrap input[type="reset"]:hover,
-body .mec-wrap input[type="button"]:hover,
-body .mec-wrap .mec-booking-button:hover,
-body .mec-wrap .mec-load-more-button:hover,
-body .mec-wrap .mec-load-more-btn:hover,
-body .mec-wrap .mec-nextprev-next-button:hover,
-body .mec-wrap .mec-nextprev-prev-button:hover {
-  background: linear-gradient(135deg, #3398ff, #5fd5ff) !important;
-  box-shadow: 0 16px 28px rgba(51, 152, 255, 0.4);
-  transform: translateY(-3px);
-}
-
-/* Label pills & badges */
-body .mec-wrap .mec-labels li,
-body .mec-wrap .mec-single-event .mec-event-meta dd,
-body .mec-wrap .mec-calendar-day .mec-calendar-novel-selected-day {
-  background: rgba(78, 170, 255, 0.2) !important;
-  border: 1px solid rgba(78, 170, 255, 0.35) !important;
-  border-radius: 12px;
-  color: #e8f2ff !important;
-}
-
-/* Light mode baseline */
-body.light-mode .mec-wrap {
-  color: #0d1a33;
-}
-
-body.light-mode .mec-wrap h1,
-body.light-mode .mec-wrap h2,
-body.light-mode .mec-wrap h3,
-body.light-mode .mec-wrap h4,
-body.light-mode .mec-wrap h5,
-body.light-mode .mec-wrap h6 {
-  color: #0d1a33 !important;
-}
-
-body.light-mode .mec-wrap p,
-body.light-mode .mec-wrap li {
-  color: #203050;
-}
-
-body.light-mode .mec-wrap a {
-  color: #0073e6;
-}
-
-body.light-mode .mec-wrap a:hover,
-body.light-mode .mec-wrap a:focus {
-  color: #005bb5;
-}
-
-body.light-mode .mec-wrap input[type="text"],
-body.light-mode .mec-wrap input[type="email"],
-body.light-mode .mec-wrap input[type="number"],
-body.light-mode .mec-wrap input[type="search"],
-body.light-mode .mec-wrap input[type="tel"],
-body.light-mode .mec-wrap input[type="url"],
-body.light-mode .mec-wrap input[type="password"],
-body.light-mode .mec-wrap select,
-body.light-mode .mec-wrap textarea,
-body.light-mode .mec-wrap .nice-select {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border: 1px solid rgba(13, 26, 51, 0.12) !important;
-  color: #0d1a33 !important;
-}
-
-body.light-mode .mec-wrap .button,
-body.light-mode .mec-wrap a.button,
-body.light-mode .mec-wrap button:not(.owl-dot):not(.gm-control-active):not(.mejs-button):not(.mec-googlemap-details button):not(.dismissButton),
-body.light-mode .mec-wrap input[type="submit"],
-body.light-mode .mec-wrap input[type="reset"],
-body.light-mode .mec-wrap input[type="button"],
-body.light-mode .mec-wrap .mec-booking-button,
-body.light-mode .mec-wrap .mec-load-more-button,
-body.light-mode .mec-wrap .mec-load-more-btn,
-body.light-mode .mec-wrap .mec-nextprev-next-button,
-body.light-mode .mec-wrap .mec-nextprev-prev-button {
-  background: linear-gradient(135deg, #0a7aff, #34b8ff) !important;
-  color: #ffffff !important;
-}
-
-/* =======================================================
-   Single Event Layout
-   ======================================================= */
-.oras-mec-single {
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-  color: #ffffff;
-  margin: 2.5rem auto;
-  padding: clamp(1.75rem, 2vw + 1rem, 3rem);
-  width: min(100%, 1100px);
-}
-
-.oras-mec-single .mec-single-event {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  padding: 0;
-  margin: 0;
-}
-
-.oras-mec-single .mec-single-event .row,
-.oras-mec-single .mec-single-event .mec-row {
-  row-gap: clamp(1.5rem, 2vw, 2.75rem);
-}
-
-.oras-mec-single .mec-single-event .mec-events-meta-group {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
-  padding: 1.25rem 1.5rem;
-}
-
-.oras-mec-single .mec-single-event .mec-events-meta-group > * + * {
-  margin-top: 0.75rem;
-}
-
-.oras-mec-single .mec-single-event .mec-events-meta-group h3,
-.oras-mec-single .mec-single-event .mec-events-meta-group h4 {
-  margin-bottom: 0.35rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-}
-
-.oras-mec-single .mec-single-event .mec-events-meta-group dl,
-.oras-mec-single .mec-single-event .mec-events-meta-group dd,
-.oras-mec-single .mec-single-event .mec-events-meta-group dt {
-  margin: 0;
-  color: rgba(223, 232, 255, 0.85);
-}
-
-.oras-mec-single .mec-single-event .mec-single-event-description,
-.oras-mec-single .mec-single-event .mec-event-content,
-.oras-mec-single .mec-single-event .mec-event-venue,
-.oras-mec-single .mec-single-event .mec-single-event-content {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.38);
-  padding: clamp(1.25rem, 1.5vw + 1rem, 2rem);
-}
-
-body.single-mec-events .oras-mec-container {
-  padding-left: min(5vw, 60px);
-  padding-right: min(5vw, 60px);
-}
-
-body.single-mec-events .oras-mec-single {
-  width: min(100%, 1200px);
+/* Make the pane **truly full-bleed** across the viewport on MEC single pages */
+body.single-mec-events .mec-wrap .mec-single-event,
+body.single-mec-events .mec-single-event {
+  border-radius: 0;             /* no rounded edges against viewport edge */
+  width: 100vw;                 /* full viewport width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 @media (max-width: 640px) {
@@ -581,40 +267,28 @@ body.single-mec-events .oras-mec-single {
 /* =======================================================
    Search & Filter Forms
    ======================================================= */
-body .mec-wrap .mec-search-form,
-body .mec-container .mec-search-form,
-body .mec-search-form {
+.mec-search-form {
   background: rgba(255, 255, 255, 0.05) !important;
   -webkit-backdrop-filter: blur(8px) saturate(180%);
   backdrop-filter: blur(8px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
   padding: 1.5rem;
   color: #fff;
   gap: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
 }
 
-body .mec-wrap .mec-search-form label,
-body .mec-wrap .mec-search-form i,
-body .mec-container .mec-search-form label,
-body .mec-container .mec-search-form i {
+.mec-search-form label,
+.mec-search-form i {
   color: #d6e7ff !important;
 }
 
-body .mec-wrap .mec-search-form select,
-body .mec-wrap .mec-search-form input[type="search"],
-body .mec-wrap .mec-search-form input[type="text"],
-body .mec-wrap .mec-search-form input[type="number"],
-body .mec-wrap .mec-search-form input[type="email"],
-body .mec-container .mec-search-form select,
-body .mec-container .mec-search-form input[type="search"],
-body .mec-container .mec-search-form input[type="text"],
-body .mec-container .mec-search-form input[type="number"],
-body .mec-container .mec-search-form input[type="email"] {
+.mec-search-form select,
+.mec-search-form input[type="search"],
+.mec-search-form input[type="text"],
+.mec-search-form input[type="number"],
+.mec-search-form input[type="email"] {
   background: rgba(26, 26, 26, 0.75) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 8px;
@@ -625,32 +299,24 @@ body .mec-container .mec-search-form input[type="email"] {
   appearance: none;
 }
 
-body .mec-wrap .mec-search-form select:focus,
-body .mec-wrap .mec-search-form input:focus,
-body .mec-container .mec-search-form select:focus,
-body .mec-container .mec-search-form input:focus {
+.mec-search-form select:focus,
+.mec-search-form input:focus {
   border-color: #4eaaff !important;
   box-shadow: 0 0 8px rgba(78, 170, 255, 0.6);
   outline: none;
 }
 
-body .mec-wrap .mec-search-form .mec-dropdown-wrap,
-body .mec-wrap .mec-search-form .mec-date-search,
-body .mec-wrap .mec-search-form .mec-text-input-search,
-body .mec-container .mec-search-form .mec-dropdown-wrap,
-body .mec-container .mec-search-form .mec-date-search,
-body .mec-container .mec-search-form .mec-text-input-search {
+.mec-search-form .mec-dropdown-wrap,
+.mec-search-form .mec-date-search,
+.mec-search-form .mec-text-input-search {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-body .mec-wrap .mec-search-form .mec-dropdown-search,
-body .mec-wrap .mec-search-form .mec-date-search,
-body .mec-wrap .mec-search-form .mec-text-input-search,
-body .mec-container .mec-search-form .mec-dropdown-search,
-body .mec-container .mec-search-form .mec-date-search,
-body .mec-container .mec-search-form .mec-text-input-search {
+.mec-search-form .mec-dropdown-search,
+.mec-search-form .mec-date-search,
+.mec-search-form .mec-text-input-search {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
@@ -662,34 +328,26 @@ body .mec-container .mec-search-form .mec-text-input-search {
   flex-direction: column;
 }
 
-body .mec-wrap .mec-search-form .mec-dropdown-search i,
-body .mec-wrap .mec-search-form .mec-date-search i,
-body .mec-wrap .mec-search-form .mec-text-input-search i,
-body .mec-container .mec-search-form .mec-dropdown-search i,
-body .mec-container .mec-search-form .mec-date-search i,
-body .mec-container .mec-search-form .mec-text-input-search i {
+.mec-search-form .mec-dropdown-search i,
+.mec-search-form .mec-date-search i,
+.mec-search-form .mec-text-input-search i {
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
 
-body .mec-wrap .mec-search-form .mec-date-search select,
-body .mec-container .mec-search-form .mec-date-search select {
+.mec-search-form .mec-date-search select {
   width: auto;
   min-width: 130px;
 }
 
-body .mec-wrap .mec-search-form .mec-search-reset-button,
-body .mec-container .mec-search-form .mec-search-reset-button {
+.mec-search-form .mec-search-reset-button {
   display: flex;
   align-items: flex-end;
 }
 
-body .mec-wrap .mec-search-form .mec-search-reset-button .button,
-body .mec-wrap .mec-search-form .mec-search-reset-button button,
-body .mec-wrap .mec-search-form button.mec-button,
-body .mec-container .mec-search-form .mec-search-reset-button .button,
-body .mec-container .mec-search-form .mec-search-reset-button button,
-body .mec-container .mec-search-form button.mec-button {
+.mec-search-form .mec-search-reset-button .button,
+.mec-search-form .mec-search-reset-button button,
+.mec-search-form button.mec-button {
   background: #0073e6 !important;
   color: #fff !important;
   border: none !important;
@@ -701,29 +359,21 @@ body .mec-container .mec-search-form button.mec-button {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-body .mec-wrap .mec-search-form .mec-search-reset-button .button:hover,
-body .mec-wrap .mec-search-form .mec-search-reset-button button:hover,
-body .mec-wrap .mec-search-form button.mec-button:hover,
-body .mec-container .mec-search-form .mec-search-reset-button .button:hover,
-body .mec-container .mec-search-form .mec-search-reset-button button:hover,
-body .mec-container .mec-search-form button.mec-button:hover {
+.mec-search-form .mec-search-reset-button .button:hover,
+.mec-search-form .mec-search-reset-button button:hover,
+.mec-search-form button.mec-button:hover {
   background: #005bb5 !important;
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  body .mec-wrap .mec-search-form,
-  body .mec-container .mec-search-form,
-  body .mec-search-form {
+  .mec-search-form {
     padding: 1.1rem;
   }
 
-  body .mec-wrap .mec-search-form .mec-dropdown-search,
-  body .mec-wrap .mec-search-form .mec-date-search,
-  body .mec-wrap .mec-search-form .mec-text-input-search,
-  body .mec-container .mec-search-form .mec-dropdown-search,
-  body .mec-container .mec-search-form .mec-date-search,
-  body .mec-container .mec-search-form .mec-text-input-search {
+  .mec-search-form .mec-dropdown-search,
+  .mec-search-form .mec-date-search,
+  .mec-search-form .mec-text-input-search {
     flex: 1 1 100%;
   }
 }
@@ -765,52 +415,16 @@ body.light-mode .mec-btn {
   background: #0073e6;
   color: #fff;
 }
-body.light-mode .oras-mec-single .mec-single-event .mec-events-meta-group {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-body.light-mode .oras-mec-single .mec-single-event .mec-events-meta-group dl,
-body.light-mode .oras-mec-single .mec-single-event .mec-events-meta-group dd,
-body.light-mode .oras-mec-single .mec-single-event .mec-events-meta-group dt,
-body.light-mode .oras-mec-single .mec-single-event .mec-events-meta-group p {
-  color: rgba(16, 24, 48, 0.75);
-}
-body.light-mode .oras-mec-single .mec-single-event .mec-single-event-description,
-body.light-mode .oras-mec-single .mec-single-event .mec-event-content,
-body.light-mode .oras-mec-single .mec-single-event .mec-event-venue,
-body.light-mode .oras-mec-single .mec-single-event .mec-single-event-content {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  color: #0d1a33;
-}
-body.light-mode .mec-wrap .mec-search-form,
-body.light-mode .mec-container .mec-search-form,
 body.light-mode .mec-search-form {
   background: rgba(255, 255, 255, 0.9) !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
   color: #000;
 }
-body.light-mode .mec-wrap .mec-search-form label,
-body.light-mode .mec-wrap .mec-search-form i,
-body.light-mode .mec-container .mec-search-form label,
-body.light-mode .mec-container .mec-search-form i,
 body.light-mode .mec-search-form label,
 body.light-mode .mec-search-form i {
   color: #002c5c !important;
 }
-body.light-mode .mec-wrap .mec-search-form select,
-body.light-mode .mec-wrap .mec-search-form input[type="search"],
-body.light-mode .mec-wrap .mec-search-form input[type="text"],
-body.light-mode .mec-wrap .mec-search-form input[type="number"],
-body.light-mode .mec-wrap .mec-search-form input[type="email"],
-body.light-mode .mec-container .mec-search-form select,
-body.light-mode .mec-container .mec-search-form input[type="search"],
-body.light-mode .mec-container .mec-search-form input[type="text"],
-body.light-mode .mec-container .mec-search-form input[type="number"],
-body.light-mode .mec-container .mec-search-form input[type="email"],
 body.light-mode .mec-search-form select,
 body.light-mode .mec-search-form input[type="search"],
 body.light-mode .mec-search-form input[type="text"],
@@ -820,12 +434,6 @@ body.light-mode .mec-search-form input[type="email"] {
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
   color: #000 !important;
 }
-body.light-mode .mec-wrap .mec-search-form .mec-dropdown-search,
-body.light-mode .mec-wrap .mec-search-form .mec-date-search,
-body.light-mode .mec-wrap .mec-search-form .mec-text-input-search,
-body.light-mode .mec-container .mec-search-form .mec-dropdown-search,
-body.light-mode .mec-container .mec-search-form .mec-date-search,
-body.light-mode .mec-container .mec-search-form .mec-text-input-search,
 body.light-mode .mec-search-form .mec-dropdown-search,
 body.light-mode .mec-search-form .mec-date-search,
 body.light-mode .mec-search-form .mec-text-input-search {
@@ -836,26 +444,22 @@ body.light-mode .mec-search-form .mec-text-input-search {
 /* =======================================================
    Monthly Calendar (Grid / Novel Layout)
    ======================================================= */
-body .mec-wrap .mec-calendar-side,
-body .mec-calendar .mec-calendar-side,
-body .mec-box-calendar.mec-calendar .mec-calendar-side {
-  background: var(--oras-mec-pane-bg) !important;
+.mec-calendar-side {
+  background: rgba(255, 255, 255, 0.05);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid var(--oras-mec-pane-border) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
-  box-shadow: var(--oras-mec-pane-shadow) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
   padding: 1.75rem;
-  color: #fff !important;
+  color: #fff;
 }
 
-body .mec-wrap .mec-calendar-side .mec-skin-monthly-view-month-navigator-container,
-body .mec-calendar .mec-calendar-side .mec-skin-monthly-view-month-navigator-container {
+.mec-calendar-side .mec-skin-monthly-view-month-navigator-container {
   margin-bottom: 1.25rem;
 }
 
-body .mec-wrap .mec-calendar-side .mec-month-navigator,
-body .mec-calendar .mec-calendar-side .mec-month-navigator {
+.mec-calendar-side .mec-month-navigator {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -864,17 +468,13 @@ body .mec-calendar .mec-calendar-side .mec-month-navigator {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month,
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month {
+.mec-calendar-side .mec-month-navigator .mec-previous-month,
+.mec-calendar-side .mec-month-navigator .mec-next-month {
   flex: 1 1 0;
 }
 
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month a,
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month a,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month a,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month a {
+.mec-calendar-side .mec-month-navigator .mec-previous-month a,
+.mec-calendar-side .mec-month-navigator .mec-next-month a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -889,17 +489,14 @@ body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month a {
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
-body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month a:hover,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
-body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
+.mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
+.mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
   background: rgba(78, 170, 255, 0.28);
   color: #fff;
   transform: translateY(-2px);
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-header h2,
-body .mec-calendar .mec-calendar-side .mec-calendar-header h2 {
+.mec-calendar-side .mec-calendar-header h2 {
   margin: 0;
   font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
   font-weight: 700;
@@ -908,23 +505,21 @@ body .mec-calendar .mec-calendar-side .mec-calendar-header h2 {
   color: #fff;
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-table,
-body .mec-calendar .mec-calendar-side .mec-calendar-table {
-  background: rgba(255, 255, 255, 0.02) !important;
+.mec-calendar-side .mec-calendar-table {
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-table-head,
-body .mec-wrap .mec-calendar-side .mec-calendar-row,
-body .mec-calendar .mec-calendar-side .mec-calendar-table-head,
-body .mec-calendar .mec-calendar-side .mec-calendar-row {
+.mec-calendar-side .mec-calendar-table-head,
+.mec-calendar-side .mec-calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   margin: 0;
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-day-head,
-body .mec-calendar .mec-calendar-side .mec-calendar-day-head {
+.mec-calendar-side .mec-calendar-day-head {
   padding: 0.75rem 0.4rem;
   text-align: center;
   font-weight: 600;
@@ -936,10 +531,8 @@ body .mec-calendar .mec-calendar-side .mec-calendar-day-head {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-day,
-body .mec-wrap .mec-calendar-side .mec-table-nullday,
-body .mec-calendar .mec-calendar-side .mec-calendar-day,
-body .mec-calendar .mec-calendar-side .mec-table-nullday {
+.mec-calendar-side .mec-calendar-day,
+.mec-calendar-side .mec-table-nullday {
   position: relative;
   min-height: 110px;
   padding: 0.75rem 0.65rem 0.85rem;
@@ -953,32 +546,27 @@ body .mec-calendar .mec-calendar-side .mec-table-nullday {
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-row dt:last-child,
-body .mec-calendar .mec-calendar-side .mec-calendar-row dt:last-child {
+.mec-calendar-side .mec-calendar-row dt:last-child {
   border-right: none;
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-day:hover,
-body .mec-calendar .mec-calendar-side .mec-calendar-day:hover {
+.mec-calendar-side .mec-calendar-day:hover {
   background: rgba(78, 170, 255, 0.18);
   box-shadow: inset 0 0 0 1px rgba(78, 170, 255, 0.35);
   transform: translateY(-2px);
 }
 
-body .mec-wrap .mec-calendar-side .mec-table-nullday,
-body .mec-calendar .mec-calendar-side .mec-table-nullday {
+.mec-calendar-side .mec-table-nullday {
   color: rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.015);
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-day.mec-selected-day,
-body .mec-calendar .mec-calendar-side .mec-calendar-day.mec-selected-day {
+.mec-calendar-side .mec-calendar-day.mec-selected-day {
   background: rgba(78, 170, 255, 0.24);
   box-shadow: inset 0 0 0 1px rgba(78, 170, 255, 0.45);
 }
 
-body .mec-wrap .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day,
-body .mec-calendar .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
+.mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
   display: inline-block;
   margin-bottom: 0.45rem;
   padding: 0.35rem 0.65rem;
@@ -991,8 +579,7 @@ body .mec-calendar .mec-calendar-side .mec-calendar-day .mec-calendar-novel-sele
   text-transform: uppercase;
 }
 
-body .mec-wrap .mec-calendar-side .mec-single-event-novel,
-body .mec-calendar .mec-calendar-side .mec-single-event-novel {
+.mec-calendar-side .mec-single-event-novel {
   margin-top: 0.35rem;
   padding: 0.6rem 0.7rem;
   border-radius: 10px;
@@ -1003,15 +590,13 @@ body .mec-calendar .mec-calendar-side .mec-single-event-novel {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-body .mec-wrap .mec-calendar-side .mec-single-event-novel:hover,
-body .mec-calendar .mec-calendar-side .mec-single-event-novel:hover {
+.mec-calendar-side .mec-single-event-novel:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
   background: rgba(78, 170, 255, 0.28) !important;
 }
 
-body .mec-wrap .mec-calendar-side .mec-single-event-novel .mec-event-title,
-body .mec-calendar .mec-calendar-side .mec-single-event-novel .mec-event-title {
+.mec-calendar-side .mec-single-event-novel .mec-event-title {
   margin: 0;
   font-size: 0.9rem;
   font-weight: 600;
@@ -1019,176 +604,135 @@ body .mec-calendar .mec-calendar-side .mec-single-event-novel .mec-event-title {
   color: #fff;
 }
 
-body .mec-wrap .mec-calendar-side .event-single-link-novel,
-body .mec-calendar .mec-calendar-side .event-single-link-novel {
+.mec-calendar-side .event-single-link-novel {
   text-decoration: none;
 }
 
-body .mec-wrap .mec-calendar-side .mec-sl-angle-left,
-body .mec-wrap .mec-calendar-side .mec-sl-angle-right,
-body .mec-wrap .mec-calendar-side .mec-sl-folder,
-body .mec-wrap .mec-calendar-side .mec-sl-location-pin,
-body .mec-wrap .mec-calendar-side .mec-sl-tag,
-body .mec-wrap .mec-calendar-side .mec-sl-pin,
-body .mec-wrap .mec-calendar-side .mec-sl-calendar,
-body .mec-wrap .mec-calendar-side .mec-sl-magnifier,
-body .mec-calendar .mec-calendar-side .mec-sl-angle-left,
-body .mec-calendar .mec-calendar-side .mec-sl-angle-right,
-body .mec-calendar .mec-calendar-side .mec-sl-folder,
-body .mec-calendar .mec-calendar-side .mec-sl-location-pin,
-body .mec-calendar .mec-calendar-side .mec-sl-tag,
-body .mec-calendar .mec-calendar-side .mec-sl-pin,
-body .mec-calendar .mec-calendar-side .mec-sl-calendar,
-body .mec-calendar .mec-calendar-side .mec-sl-magnifier {
+.mec-calendar-side .mec-sl-angle-left,
+.mec-calendar-side .mec-sl-angle-right,
+.mec-calendar-side .mec-sl-folder,
+.mec-calendar-side .mec-sl-location-pin,
+.mec-calendar-side .mec-sl-tag,
+.mec-calendar-side .mec-sl-pin,
+.mec-calendar-side .mec-sl-calendar,
+.mec-calendar-side .mec-sl-magnifier {
   color: #4eaaff;
 }
 
 @media (max-width: 1024px) {
-  body .mec-wrap .mec-calendar-side,
-  body .mec-calendar .mec-calendar-side {
+  .mec-calendar-side {
     padding: 1.25rem;
   }
 
-  body .mec-wrap .mec-calendar-side .mec-calendar-day,
-  body .mec-wrap .mec-calendar-side .mec-table-nullday,
-  body .mec-calendar .mec-calendar-side .mec-calendar-day,
-  body .mec-calendar .mec-calendar-side .mec-table-nullday {
+  .mec-calendar-side .mec-calendar-day,
+  .mec-calendar-side .mec-table-nullday {
     min-height: 90px;
     font-size: 0.85rem;
     padding: 0.6rem 0.45rem 0.7rem;
   }
 
-  body .mec-wrap .mec-calendar-side .mec-month-navigator,
-  body .mec-calendar .mec-calendar-side .mec-month-navigator {
+  .mec-calendar-side .mec-month-navigator {
     gap: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  body .mec-wrap .mec-calendar-side .mec-month-navigator,
-  body .mec-calendar .mec-calendar-side .mec-month-navigator {
+  .mec-calendar-side .mec-month-navigator {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
   }
 
-  body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month,
-  body .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month,
-  body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month,
-  body .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month {
+  .mec-calendar-side .mec-month-navigator .mec-previous-month,
+  .mec-calendar-side .mec-month-navigator .mec-next-month {
     width: 100%;
   }
 }
 
-body.light-mode .mec-wrap .mec-calendar-side,
-body.light-mode .mec-calendar .mec-calendar-side {
+body.light-mode .mec-calendar-side {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.08);
   color: #10122d;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-month-navigator,
-body.light-mode .mec-calendar .mec-calendar-side .mec-month-navigator {
+body.light-mode .mec-calendar-side .mec-month-navigator {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month a,
-body.light-mode .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month a,
-body.light-mode .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month a,
-body.light-mode .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month a {
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-previous-month a,
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-next-month a {
   background: rgba(0, 115, 230, 0.14);
   color: #005bb5;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
-body.light-mode .mec-wrap .mec-calendar-side .mec-month-navigator .mec-next-month a:hover,
-body.light-mode .mec-calendar .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
-body.light-mode .mec-calendar .mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-previous-month a:hover,
+body.light-mode .mec-calendar-side .mec-month-navigator .mec-next-month a:hover {
   background: rgba(0, 115, 230, 0.25);
   color: #fff;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-table,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-table {
+body.light-mode .mec-calendar-side .mec-calendar-table {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-day-head,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-day-head {
+body.light-mode .mec-calendar-side .mec-calendar-day-head {
   color: rgba(16, 18, 45, 0.7);
   background: rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-day,
-body.light-mode .mec-wrap .mec-calendar-side .mec-table-nullday,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-day,
-body.light-mode .mec-calendar .mec-calendar-side .mec-table-nullday {
+body.light-mode .mec-calendar-side .mec-calendar-day,
+body.light-mode .mec-calendar-side .mec-table-nullday {
   color: rgba(16, 18, 45, 0.85);
   background: rgba(255, 255, 255, 0.82);
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-day:hover,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-day:hover {
+body.light-mode .mec-calendar-side .mec-calendar-day:hover {
   background: rgba(0, 115, 230, 0.18);
   box-shadow: inset 0 0 0 1px rgba(0, 115, 230, 0.35);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-table-nullday,
-body.light-mode .mec-calendar .mec-calendar-side .mec-table-nullday {
+body.light-mode .mec-calendar-side .mec-table-nullday {
   color: rgba(16, 18, 45, 0.38);
   background: rgba(0, 0, 0, 0.02);
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-day.mec-selected-day,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-day.mec-selected-day {
+body.light-mode .mec-calendar-side .mec-calendar-day.mec-selected-day {
   background: rgba(0, 115, 230, 0.24);
   box-shadow: inset 0 0 0 1px rgba(0, 115, 230, 0.45);
   color: #fff;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day,
-body.light-mode .mec-calendar .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
+body.light-mode .mec-calendar-side .mec-calendar-day .mec-calendar-novel-selected-day {
   background: rgba(0, 0, 0, 0.08);
   color: #005bb5;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-single-event-novel,
-body.light-mode .mec-calendar .mec-calendar-side .mec-single-event-novel {
+body.light-mode .mec-calendar-side .mec-single-event-novel {
   background: rgba(255, 255, 255, 0.92) !important;
   border: 1px solid rgba(0, 0, 0, 0.08);
   color: #10122d !important;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-single-event-novel:hover,
-body.light-mode .mec-calendar .mec-calendar-side .mec-single-event-novel:hover {
+body.light-mode .mec-calendar-side .mec-single-event-novel:hover {
   background: rgba(0, 115, 230, 0.2) !important;
   color: #fff !important;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-single-event-novel .mec-event-title,
-body.light-mode .mec-calendar .mec-calendar-side .mec-single-event-novel .mec-event-title {
+body.light-mode .mec-calendar-side .mec-single-event-novel .mec-event-title {
   color: inherit;
 }
 
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-angle-left,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-angle-right,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-folder,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-location-pin,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-tag,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-pin,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-calendar,
-body.light-mode .mec-wrap .mec-calendar-side .mec-sl-magnifier,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-angle-left,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-angle-right,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-folder,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-location-pin,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-tag,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-pin,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-calendar,
-body.light-mode .mec-calendar .mec-calendar-side .mec-sl-magnifier {
+body.light-mode .mec-calendar-side .mec-sl-angle-left,
+body.light-mode .mec-calendar-side .mec-sl-angle-right,
+body.light-mode .mec-calendar-side .mec-sl-folder,
+body.light-mode .mec-calendar-side .mec-sl-location-pin,
+body.light-mode .mec-calendar-side .mec-sl-tag,
+body.light-mode .mec-calendar-side .mec-sl-pin,
+body.light-mode .mec-calendar-side .mec-sl-calendar,
+body.light-mode .mec-calendar-side .mec-sl-magnifier {
   color: #005bb5;
 }
