@@ -158,6 +158,161 @@ add_shortcode('oras_login_button', 'oras_login_button_shortcode');
  * @param WP_Post|null $post Optional post object for shortcode/block detection.
  * @return bool
  */
+/**
+ * Check if Elementor data contains Modern Events Calendar widgets or shortcodes.
+ *
+ * @param array $elements          Elementor element data.
+ * @param array $mec_shortcodes    List of MEC shortcode slugs to search for.
+ * @param array $checked_templates Template IDs that have already been inspected.
+ *
+ * @return bool
+ */
+function oras_theme_elementor_elements_have_mec( array $elements, array $mec_shortcodes, array &$checked_templates ) {
+    foreach ( $elements as $element ) {
+        if ( ! is_array( $element ) ) {
+            continue;
+        }
+
+        $settings = array();
+        if ( isset( $element['settings'] ) && is_array( $element['settings'] ) ) {
+            $settings = $element['settings'];
+        }
+
+        if ( isset( $element['elType'], $element['widgetType'] ) && 'widget' === $element['elType'] ) {
+            $widget_type = strtolower( (string) $element['widgetType'] );
+            if ( false !== strpos( $widget_type, 'mec' ) ) {
+                return true;
+            }
+        }
+
+        $string_settings_keys = array( 'shortcode', 'shortcode_content', 'editor', 'custom_html', 'html', 'content', 'text' );
+        foreach ( $string_settings_keys as $key ) {
+            if ( empty( $settings[ $key ] ) || ! is_string( $settings[ $key ] ) ) {
+                continue;
+            }
+
+            foreach ( $mec_shortcodes as $shortcode ) {
+                if ( has_shortcode( $settings[ $key ], $shortcode ) ) {
+                    return true;
+                }
+            }
+        }
+
+        // Recursively inspect nested settings that may contain shortcode definitions.
+        foreach ( $settings as $value ) {
+            if ( is_array( $value ) && oras_theme_elementor_settings_have_mec( $value, $mec_shortcodes ) ) {
+                return true;
+            }
+        }
+
+        $template_ids = array();
+        $template_keys = array( 'template_id', 'templateID', 'template_ids', 'templateId' );
+        foreach ( $template_keys as $template_key ) {
+            if ( ! empty( $element[ $template_key ] ) ) {
+                $template_ids = array_merge( $template_ids, (array) $element[ $template_key ] );
+            }
+            if ( ! empty( $settings[ $template_key ] ) ) {
+                $template_ids = array_merge( $template_ids, (array) $settings[ $template_key ] );
+            }
+        }
+
+        if ( isset( $settings['_global_widget_id'] ) ) {
+            $template_ids[] = $settings['_global_widget_id'];
+        }
+
+        if ( ! empty( $template_ids ) ) {
+            $template_ids = array_map( 'absint', $template_ids );
+            $template_ids = array_filter( array_unique( $template_ids ) );
+
+            foreach ( $template_ids as $template_id ) {
+                if ( in_array( $template_id, $checked_templates, true ) ) {
+                    continue;
+                }
+
+                $checked_templates[] = $template_id;
+
+                $template_post = get_post( $template_id );
+                if ( $template_post instanceof WP_Post && oras_theme_elementor_post_has_mec( $template_post, $mec_shortcodes, $checked_templates ) ) {
+                    return true;
+                }
+            }
+        }
+
+        if ( isset( $element['elements'] ) && is_array( $element['elements'] ) ) {
+            if ( oras_theme_elementor_elements_have_mec( $element['elements'], $mec_shortcodes, $checked_templates ) ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Recursively inspect Elementor settings for MEC shortcodes.
+ *
+ * @param array $settings        Elementor settings array.
+ * @param array $mec_shortcodes List of MEC shortcode slugs to search for.
+ *
+ * @return bool
+ */
+function oras_theme_elementor_settings_have_mec( array $settings, array $mec_shortcodes ) {
+    foreach ( $settings as $value ) {
+        if ( is_string( $value ) ) {
+            foreach ( $mec_shortcodes as $shortcode ) {
+                if ( has_shortcode( $value, $shortcode ) ) {
+                    return true;
+                }
+            }
+        } elseif ( is_array( $value ) && oras_theme_elementor_settings_have_mec( $value, $mec_shortcodes ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Check if a post built with Elementor includes MEC widgets/shortcodes.
+ *
+ * @param WP_Post $post            Post to inspect.
+ * @param array   $mec_shortcodes  List of MEC shortcode slugs to search for.
+ * @param array   $checked_templates Reference array of template IDs already processed.
+ *
+ * @return bool
+ */
+function oras_theme_elementor_post_has_mec( WP_Post $post, array $mec_shortcodes, array &$checked_templates ) {
+    $raw_data = get_post_meta( $post->ID, '_elementor_data', true );
+
+    if ( empty( $raw_data ) ) {
+        return false;
+    }
+
+    $elementor_data = $raw_data;
+
+    if ( is_string( $elementor_data ) ) {
+        $elementor_data = wp_unslash( $elementor_data );
+        $decoded_data   = json_decode( $elementor_data, true );
+
+        if ( JSON_ERROR_NONE === json_last_error() ) {
+            $elementor_data = $decoded_data;
+        } else {
+            $maybe_unserialized = maybe_unserialize( $elementor_data );
+            if ( is_array( $maybe_unserialized ) ) {
+                $elementor_data = $maybe_unserialized;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    if ( ! is_array( $elementor_data ) ) {
+        return false;
+    }
+
+    return oras_theme_elementor_elements_have_mec( $elementor_data, $mec_shortcodes, $checked_templates );
+}
+
 function oras_theme_mec_context_active( $post = null ) {
     if ( ! class_exists( 'MEC' ) ) {
         return false;
@@ -198,6 +353,11 @@ function oras_theme_mec_context_active( $post = null ) {
                 return true;
             }
         }
+    }
+
+    $checked_templates = array( $post->ID );
+    if ( oras_theme_elementor_post_has_mec( $post, $mec_shortcodes, $checked_templates ) ) {
+        return true;
     }
 
     return false;
